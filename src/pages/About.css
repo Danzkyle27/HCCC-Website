@@ -1,0 +1,79 @@
+/* First Section */
+.about-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px 50px 20px;
+}
+
+.about-overlay {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 40px;
+  text-align: justify;
+}
+
+.about-text {
+  font-size: 25px;
+  line-height: 1.9;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.about-logo {
+  display: block;
+  margin: 0 auto 30px auto;
+  max-width: 200px;
+  height: auto;
+}
+
+/* Second Section */
+.second-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  padding: 80px 20px;
+  opacity: 0;  
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.second-overlay {
+  max-width: 600px;
+  width: 100%;
+  padding: 0 0;
+  text-align: left; 
+  color: #ffffff;
+}
+
+.second-title {
+  font-size: 50px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.second-divider {
+  border: 0;
+  height: 2px;
+  background: #ffffff;
+  margin: 10px 0 20px 0;
+}
+
+.second-text {
+  font-size: 35px;
+  line-height: 1.8;
+}
+
+/* Fade-in animation */
+.fade-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
