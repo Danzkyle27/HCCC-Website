@@ -38,10 +38,10 @@
   background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
   padding: 80px 20px;
-  opacity: 0;  
+  opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease-out;
 }
@@ -49,8 +49,8 @@
 .second-overlay {
   max-width: 600px;
   width: 100%;
-  padding: 0 0;
-  text-align: left; 
+  padding: 0;
+  text-align: left;
   color: #ffffff;
 }
 
@@ -76,4 +76,80 @@
 .fade-section.fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================= */
+/*    RESPONSIVE STYLES          */
+/* ============================= */
+
+/* Tablets (portrait & landscape) */
+@media (max-width: 1024px) {
+  .about-text {
+    font-size: 22px;
+    line-height: 1.8;
+  }
+
+  .second-title {
+    font-size: 40px;
+  }
+
+  .second-text {
+    font-size: 28px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .about-overlay {
+    padding: 0 20px;
+  }
+
+  .about-text {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .about-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .second-page {
+    justify-content: center; 
+    text-align: center;
+    padding: 60px 15px;
+  }
+
+  .second-overlay {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .second-title {
+    font-size: 32px;
+  }
+
+  .second-text {
+    font-size: 22px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .about-text {
+    font-size: 18px;
+  }
+
+  .second-title {
+    font-size: 26px;
+  }
+
+  .second-text {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .about-logo {
+    max-width: 120px;
+  }
 }

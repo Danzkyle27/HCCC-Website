@@ -1,7 +1,24 @@
-/* Navbar container */
 .navbar {
   background: #f7f2e3;
-  padding: 10px 20px;
+  padding: 15px 25px;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Flex container for brand + nav links */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-brand {
+  font-size: 32px;
+  font-weight: 900;
+  color: #22211f;
+  text-decoration: none;
 }
 
 .nav-list {
@@ -9,7 +26,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-list li {
@@ -24,17 +41,21 @@
   padding: 8px 12px;
   display: inline-block;
   cursor: pointer;
-  font-size: 27px;   
+  font-size: 22px;
+  transition: 0.3s ease;
 }
 
 .nav-list a:hover,
 .dropbtn:hover {
-  background: #f7f2e3;
+  background: #e7dec8;
   border-radius: 5px;
 }
 
+/* ========================= */
+/*    Dropdown menu          */
+/* ========================= */
 .dropdown-content {
-  display: none !important;  
+  display: none !important;
   position: absolute;
   background: #f7f2e3;
   top: 100%;
@@ -42,7 +63,8 @@
   min-width: 200px;
   border-radius: 5px;
   padding: 10px 0;
-  z-index: 1000;
+  z-index: 2000;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
 .dropdown-content li {
@@ -52,7 +74,7 @@
 .dropdown-content li a {
   display: block;
   color: #22211f;
-  font-size: 15px;   
+  font-size: 16px;
   font-weight: normal;
 }
 
@@ -63,4 +85,86 @@
 
 .dropdown:hover > .dropdown-content {
   display: block !important;
+}
+
+/* ========================= */
+/*    Hamburger Menu Styles  */
+/* ========================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #22211f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ========================= */
+/*    RESPONSIVE NAVBAR      */
+/* ========================= */
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .nav-list a,
+  .dropbtn {
+    font-size: 20px;
+  }
+}
+
+/* Tablets & Phones */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #f7f2e3;
+    width: 100%;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list a,
+  .dropbtn {
+    font-size: 22px;
+    padding: 12px;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .dropdown-content li a {
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+
+  .dropdown:hover > .dropdown-content {
+    display: none; 
+  }
+
+  /* Open dropdown by clicking */
+  .dropdown.open > .dropdown-content {
+    display: block;
+  }
 }
