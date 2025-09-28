@@ -84,7 +84,7 @@
 }
 
 .hamburger {
-  display: none;
+  display: none !important;
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
