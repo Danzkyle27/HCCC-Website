@@ -5,7 +5,6 @@
   z-index: 1000;
 }
 
-/* Flex container for brand + nav links */
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -51,9 +50,6 @@
   border-radius: 5px;
 }
 
-/* ========================= */
-/*    Dropdown menu          */
-/* ========================= */
 .dropdown-content {
   display: none !important;
   position: absolute;
@@ -87,14 +83,12 @@
   display: block !important;
 }
 
-/* ========================= */
-/*    Hamburger Menu Styles  */
-/* ========================= */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .hamburger span {
@@ -105,11 +99,19 @@
   transition: all 0.3s ease;
 }
 
-/* ========================= */
-/*    RESPONSIVE NAVBAR      */
-/* ========================= */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
-/* Medium screens */
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
 @media (max-width: 1024px) {
   .nav-list a,
   .dropbtn {
@@ -117,7 +119,6 @@
   }
 }
 
-/* Tablets & Phones */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -163,7 +164,6 @@
     display: none; 
   }
 
-  /* Open dropdown by clicking */
   .dropdown.open > .dropdown-content {
     display: block;
   }
