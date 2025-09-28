@@ -84,7 +84,7 @@
 }
 
 .hamburger {
-  display: none !important;
+  display: none;
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
@@ -119,13 +119,14 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Phones & portrait screens */
+@media (max-width: 768px), screen and (orientation: portrait) {
   .hamburger {
     display: flex;
   }
 
   .nav-list {
-    display: none;
+    display: none !important;
     flex-direction: column;
     gap: 15px;
     position: absolute;
@@ -138,7 +139,7 @@
   }
 
   .nav-list.active {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-list a,
