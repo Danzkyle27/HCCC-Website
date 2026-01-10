@@ -27,12 +27,14 @@
 
 .contact-main {
   font-size: 108px;
+  font-family: "Roca One", sans-serif;
   margin: 0;
   font-weight: 700;
 }
 
 .contact-sub {
   font-size: 48px;
+  font-family: "Roca One", sans-serif;
   margin: 0 0 15px 0;
 }
 
@@ -93,15 +95,19 @@
 @media (max-width: 1200px) {
   .contact-main {
     font-size: 92px;
+    font-family: "Roca One", sans-serif;
   }
   .contact-sub {
     font-size: 42px;
+    font-family: "Roca One", sans-serif;
   }
   .contact-desc {
     font-size: 26px;
+    font-family: "Roca One", sans-serif;
   }
   .contact-link {
     font-size: 26px;
+    font-family: "Roca One", sans-serif;
   }
 }
 
@@ -119,21 +125,25 @@
 
   .contact-main {
     font-size: 72px;
+    font-family: "Roca One", sans-serif;
     text-align: center;
   }
 
   .contact-sub {
     font-size: 36px;
+    font-family: "Roca One", sans-serif;
     text-align: center;
   }
 
   .contact-desc {
     font-size: 24px;
+    font-family: "Roca One", sans-serif;
     text-align: center;
   }
 
   .contact-link {
     font-size: 24px;
+    font-family: "Roca One", sans-serif;
     justify-content: center;
   }
 
@@ -151,19 +161,23 @@
 @media (max-width: 600px) {
   .contact-main {
     font-size: 52px;
+    font-family: "Roca One", sans-serif;
   }
 
   .contact-sub {
     font-size: 28px;
+    font-family: "Roca One", sans-serif;
   }
 
   .contact-desc {
     font-size: 20px;
+    font-family: "Roca One", sans-serif;
     line-height: 1.8;
   }
 
   .contact-link {
     font-size: 20px;
+    font-family: "Roca One", sans-serif;
     gap: 15px;
   }
 

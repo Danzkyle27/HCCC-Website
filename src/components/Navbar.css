@@ -14,6 +14,7 @@
 }
 
 .nav-brand {
+  font-family: "Roca Two", "Roca One", sans-serif;
   font-size: 32px;
   font-weight: 900;
   color: #22211f;
@@ -34,9 +35,10 @@
 
 .nav-list a,
 .dropbtn {
+  font-family: "Roca One", sans-serif;
   color: #22211f;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   padding: 8px 12px;
   display: inline-block;
   cursor: pointer;
@@ -68,10 +70,11 @@
 }
 
 .dropdown-content li a {
+  font-family: "Roca One", sans-serif;
   display: block;
   color: #22211f;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .dropdown-content li a:hover {
@@ -110,7 +113,6 @@
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
-
 
 @media (max-width: 1024px) {
   .nav-list a,
@@ -157,12 +159,13 @@
   }
 
   .dropdown-content li a {
+    font-family: "Roca One", sans-serif;
     padding: 10px 15px;
     font-size: 20px;
   }
 
   .dropdown:hover > .dropdown-content {
-    display: none; 
+    display: none;
   }
 
   .dropdown.open > .dropdown-content {
