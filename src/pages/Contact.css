@@ -1,3 +1,7 @@
+/* ========================= */
+/*        CONTACT PAGE       */
+/* ========================= */
+
 .contact-page {
   background-size: cover;
   background-position: center;
@@ -33,7 +37,7 @@
 }
 
 .contact-sub {
-  font-size: 48px;
+  font-size: 86px;
   font-family: "Roca One", sans-serif;
   margin: 0 0 15px 0;
 }
@@ -68,6 +72,8 @@
 .contact-icon {
   width: 48px;
   height: 48px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
 .contact-qrcodes {
@@ -80,6 +86,8 @@
   width: 150px;
   height: 150px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 /* Right column placeholder */
@@ -95,19 +103,15 @@
 @media (max-width: 1200px) {
   .contact-main {
     font-size: 92px;
-    font-family: "Roca One", sans-serif;
   }
   .contact-sub {
-    font-size: 42px;
-    font-family: "Roca One", sans-serif;
+    font-size: 60px;
   }
   .contact-desc {
     font-size: 26px;
-    font-family: "Roca One", sans-serif;
   }
   .contact-link {
     font-size: 26px;
-    font-family: "Roca One", sans-serif;
   }
 }
 
@@ -119,31 +123,28 @@
     gap: 40px;
   }
 
-  .contact-left, .contact-right {
+  .contact-left,
+  .contact-right {
     width: 100%;
   }
 
   .contact-main {
     font-size: 72px;
-    font-family: "Roca One", sans-serif;
     text-align: center;
   }
 
   .contact-sub {
-    font-size: 36px;
-    font-family: "Roca One", sans-serif;
+    font-size: 52px;
     text-align: center;
   }
 
   .contact-desc {
     font-size: 24px;
-    font-family: "Roca One", sans-serif;
     text-align: center;
   }
 
   .contact-link {
     font-size: 24px;
-    font-family: "Roca One", sans-serif;
     justify-content: center;
   }
 
@@ -161,23 +162,19 @@
 @media (max-width: 600px) {
   .contact-main {
     font-size: 52px;
-    font-family: "Roca One", sans-serif;
   }
 
   .contact-sub {
-    font-size: 28px;
-    font-family: "Roca One", sans-serif;
+    font-size: 36px;
   }
 
   .contact-desc {
     font-size: 20px;
-    font-family: "Roca One", sans-serif;
     line-height: 1.8;
   }
 
   .contact-link {
     font-size: 20px;
-    font-family: "Roca One", sans-serif;
     gap: 15px;
   }
 
@@ -238,12 +235,16 @@
   max-width: 750px;
   height: auto;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .contact-small-qr {
   width: 225px;
   height: 225px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 /* Fade-in animation */
@@ -294,5 +295,80 @@
   .contact-small-qr {
     width: 100px;
     height: 100px;
+  }
+}
+
+/* Make the Google Map responsive */
+.map-responsive {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ========================= */
+/*       HOVER EFFECTS        */
+/* ========================= */
+
+/* General hover for icons, QR codes, and map */
+.contact-icon,
+.contact-qrcodes img,
+.contact-small-qr,
+.contact-map {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-qrcodes img:hover,
+.contact-small-qr:hover,
+.contact-map:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+/* Social icons hover with platform-specific glow */
+.contact-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px;
+}
+
+.contact-icon[src*="fbicon"] {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-icon[src*="fbicon"]:hover {
+  box-shadow: 0 0 15px #1877f2; /* FB blue glow */
+}
+
+.contact-icon[src*="emailicon"]:hover {
+  box-shadow: 0 0 15px #ea4335; /* Gmail red glow */
+}
+
+.contact-icon[src*="phoneicon"]:hover {
+  box-shadow: 0 0 15px #34c759; /* Green glow for phone */
+}
+
+.contact-icon[src*="yticon"]:hover {
+  box-shadow: 0 0 15px #ff0000; /* YouTube red glow */
+}
+
+/* Optional: disable hover effect on touch devices */
+@media (hover: none) {
+  .contact-icon:hover,
+  .contact-qrcodes img:hover,
+  .contact-small-qr:hover,
+  .contact-map:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
