@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import discipleshipImage from "../../assets/discipleship.png";
 
 function Discipleship() {
   return (
-    <section className="program-detail">
+    <>
+      <Helmet>
+        <title>Discipleship - Hope in Christ City Church</title>
+        <meta name="description" content="Participate in discipleship training at Hope in Christ City Church. Equip and empower yourself to live a Christ-like life in various aspects of life and ministry." />
+      </Helmet>
+      <section className="program-detail">
       <h1 className="programs-title">PROGRAMS</h1>
 
       <div className="program-detail-content">
@@ -22,6 +28,7 @@ function Discipleship() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

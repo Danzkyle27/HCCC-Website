@@ -1,12 +1,18 @@
+import { Helmet } from "react-helmet-async";
 import "./Foundation.css";
 
 function CoreValues() {
   return (
-    <div className="foundation-page">
-      <div className="foundation-content">
+    <>
+      <Helmet>
+        <title>Core Values - Hope in Christ City Church</title>
+        <meta name="description" content="Our core values include the centrality of God's Word, discipleship, worship, excellence, soul-winning, leadership development, and love for God and others." />
+      </Helmet>
+      <div className="foundation-page">
         <h1 className="foundation-title">CORE VALUES</h1>
         <hr className="foundation-divider" />
-        <ul className="foundation-list">
+        <div className="foundation-content">
+          <ul className="foundation-list">
           <li>
             Centrality of God's Word (2 Timothy 3:16-17)
           </li>
@@ -28,9 +34,10 @@ function CoreValues() {
           <li>
             Love for God, Love for Others (Matthew 22:36-40, Mark 12:28-31)
           </li>
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

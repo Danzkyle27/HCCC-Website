@@ -1,10 +1,16 @@
 import "./About.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import aboutBackground from "../assets/aboutus.png";
 import logo from "../assets/logo.png"; 
 import secondBackground from "../assets/pastor.png"; 
 
 function AboutUs() {
+  const secondSectionRef = useRef(null);
+
+  const scrollToNextSection = () => {
+    secondSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,9 +31,13 @@ function AboutUs() {
 
   return (
     <>
+      <Helmet>
+        <title>About Us - Hope in Christ City Church</title>
+        <meta name="description" content="Learn about Hope in Christ City Church, our community, and Pastor John Joseph Valenzuela. We are a Bible-believing church in Malabon City, Philippines." />
+      </Helmet>
       {/* First Section */}
       <div
-        className="about-page"
+        className="about-page about-section-first"
         style={{ backgroundImage: `url(${aboutBackground})` }}
       >
         <div className="about-overlay">
@@ -46,10 +56,21 @@ function AboutUs() {
             and interpreting the Word of truth.
           </p>
         </div>
+        
+        {/* Scroll Indicator */}
+        <div className="scroll-indicator" onClick={scrollToNextSection} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToNextSection()}>
+          <div className="scroll-arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p className="scroll-text">Scroll to meet our pastor</p>
+        </div>
       </div>
 
       {/* Second Section */}
       <div
+        ref={secondSectionRef}
         className="second-page fade-section"
         style={{ backgroundImage: `url(${secondBackground})` }}
       >

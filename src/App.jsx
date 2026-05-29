@@ -1,7 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { HelmetProvider } from "react-helmet-async";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
+import SocialBar from "./components/SocialBar";
+import LoadingScreen from "./components/LoadingScreen";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
@@ -197,10 +202,16 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <AnimatedRoutes />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <LoadingScreen />
+        <Navbar />
+        <SocialBar />
+        <AnimatedRoutes />
+        <Footer />
+        <BackToTop />
+      </Router>
+    </HelmetProvider>
   );
 }
 

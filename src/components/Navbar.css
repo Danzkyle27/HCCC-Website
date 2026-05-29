@@ -1,8 +1,24 @@
 .navbar {
-  background: #f7f2e3;
-  padding: 15px 25px;
-  position: relative;
+  background: linear-gradient(135deg, rgba(247, 242, 227, 0.95), rgba(234, 246, 252, 0.95));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 18px 30px;
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar.scrolled {
+  background: linear-gradient(135deg, rgba(247, 242, 227, 0.98), rgba(234, 246, 252, 0.98));
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  padding: 12px 30px;
+}
+
+.navbar:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-container {
@@ -39,47 +55,109 @@
   color: #22211f;
   text-decoration: none;
   font-weight: 700;
-  padding: 8px 12px;
+  padding: 10px 16px;
   display: inline-block;
   cursor: pointer;
   font-size: 22px;
-  transition: 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  position: relative;
+}
+
+.nav-list a.active {
+  color: #5d7b8f;
+  background: rgba(93, 123, 143, 0.1);
+}
+
+.nav-list a.active::before {
+  width: 80%;
+}
+
+.nav-list a::before,
+.dropbtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #5d7b8f, #7fa6b5);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover::before,
+.dropbtn:hover::before {
+  width: 80%;
 }
 
 .nav-list a:hover,
 .dropbtn:hover {
-  background: #e7dec8;
-  border-radius: 5px;
+  background: rgba(231, 222, 200, 0.6);
+  color: #5d7b8f;
+  transform: translateY(-2px);
 }
 
 .dropdown-content {
   display: none !important;
   position: absolute;
-  background: #f7f2e3;
+  background: rgba(247, 242, 227, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   top: 100%;
   left: 0;
-  min-width: 200px;
-  border-radius: 5px;
-  padding: 10px 0;
+  min-width: 240px;
+  border-radius: 12px;
+  padding: 12px 0;
   z-index: 2000;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+}
+
+.dropdown:hover > .dropdown-content {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add invisible bridge to prevent dropdown from closing */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: transparent;
 }
 
 .dropdown-content li {
-  padding: 5px 15px;
+  padding: 4px 12px;
 }
 
 .dropdown-content li a {
   font-family: "Roca One", sans-serif;
   display: block;
   color: #22211f;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.dropdown-content li a::before {
+  display: none;
 }
 
 .dropdown-content li a:hover {
-  background: #2c3e50;
-  color: #fff;
+  background: linear-gradient(135deg, rgba(93, 123, 143, 0.15), rgba(127, 166, 181, 0.15));
+  color: #5d7b8f;
+  transform: translateX(6px);
 }
 
 .dropdown:hover > .dropdown-content {
@@ -92,6 +170,12 @@
   gap: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.hamburger:hover {
+  background: rgba(93, 123, 143, 0.1);
 }
 
 .hamburger span {
@@ -99,7 +183,7 @@
   height: 3px;
   background: #22211f;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburger.active span:nth-child(1) {
@@ -134,10 +218,14 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background: #f7f2e3;
+    background: rgba(247, 242, 227, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     width: 100%;
     padding: 20px;
-    border-top: 2px solid #ddd;
+    border-top: 2px solid rgba(93, 123, 143, 0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 0 0 12px 12px;
   }
 
   .nav-list.active {

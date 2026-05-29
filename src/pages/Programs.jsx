@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import sundayService from "../assets/sunday-service.jpg";
 import discipleship from "../assets/discipleship.png";
@@ -5,7 +6,12 @@ import bibleStudy from "../assets/bible-study.jpg";
 
 function Programs() {
   return (
-    <section className="programs">
+    <>
+      <Helmet>
+        <title>Programs - Hope in Christ City Church</title>
+        <meta name="description" content="Explore our church programs including Sunday Service, Discipleship, and Bible Study at Hope in Christ City Church." />
+      </Helmet>
+      <section className="programs">
       <h1 className="programs-title">PROGRAMS</h1>
 
       <div className="programs-grid">
@@ -25,6 +31,7 @@ function Programs() {
         </Link>
       </div>
     </section>
+    </>
   );
 }
 

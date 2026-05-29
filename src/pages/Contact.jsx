@@ -1,4 +1,6 @@
 import "./Contact.css";
+import { useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import fbIcon from "../assets/fbicon.png";
 import emailIcon from "../assets/emailicon.png";
 import phoneIcon from "../assets/phoneicon.png";
@@ -11,11 +13,40 @@ import bgImage from "../assets/contact.png";
 import mapQr from "../assets/mapqr.png";
 
 function Contact() {
+  const secondSectionRef = useRef(null);
+  const [enlargedQR, setEnlargedQR] = useState(null);
+
+  const scrollToNextSection = () => {
+    secondSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openQR = (qrImage) => {
+    setEnlargedQR(qrImage);
+  };
+
+  const closeQR = () => {
+    setEnlargedQR(null);
+  };
+
   return (
       <>
+        <Helmet>
+          <title>Contact Us - Hope in Christ City Church</title>
+          <meta name="description" content="Get in touch with Hope in Christ City Church. Find our location, contact information, and visit us in Malabon City, Philippines." />
+        </Helmet>
+        
+        {/* QR Code Modal */}
+        {enlargedQR && (
+          <div className="qr-modal" onClick={closeQR}>
+            <div className="qr-modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="qr-modal-close" onClick={closeQR}>&times;</button>
+              <img src={enlargedQR} alt="Enlarged QR Code" />
+            </div>
+          </div>
+        )}
         {/* First Section */}
         <div
-            className="contact-page"
+            className="contact-page contact-section-first"
             style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="contact-overlay">
@@ -51,17 +82,28 @@ function Contact() {
               </div>
 
               <div className="contact-qrcodes">
-                <img src={fbQr} alt="QR Code 1" />
-                <img src={emailQr} alt="QR Code 2" />
-                <img src={viberQr} alt="QR Code 3" />
-                <img src={ytQr} alt="QR Code 4" />
+                <img src={fbQr} alt="Facebook QR Code" onClick={() => openQR(fbQr)} />
+                <img src={emailQr} alt="Email QR Code" onClick={() => openQR(emailQr)} />
+                <img src={viberQr} alt="Viber QR Code" onClick={() => openQR(viberQr)} />
+                <img src={ytQr} alt="YouTube QR Code" onClick={() => openQR(ytQr)} />
               </div>
             </div>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="scroll-indicator" onClick={scrollToNextSection} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToNextSection()}>
+            <div className="scroll-arrow">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p className="scroll-text">Scroll to see our location</p>
           </div>
         </div>
 
         {/* Second Section */}
         <div
+            ref={secondSectionRef}
             className="contact-page"
             style={{ backgroundImage: `url(${bgImage})` }}
         >
@@ -95,7 +137,7 @@ function Contact() {
               </div>
 
               {/* QR Code */}
-              <img src={mapQr} alt="QR Code" className="contact-small-qr" />
+              <img src={mapQr} alt="Location QR Code" className="contact-small-qr" onClick={() => openQR(mapQr)} />
             </div>
           </div>
         </div>

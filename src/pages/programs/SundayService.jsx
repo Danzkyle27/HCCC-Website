@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import sundayService from "../../assets/sunday-service.jpg";
 
 function SundayService() {
   return (
-    <section className="program-detail">
+    <>
+      <Helmet>
+        <title>Sunday Service - Hope in Christ City Church</title>
+        <meta name="description" content="Join us for Sunday worship service at Hope in Christ City Church. We welcome individuals and families to join us in fellowship and celebration." />
+      </Helmet>
+      <section className="program-detail">
       <h1 className="programs-title">PROGRAMS</h1>
 
       <div className="program-detail-content">
@@ -18,6 +24,7 @@ function SundayService() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

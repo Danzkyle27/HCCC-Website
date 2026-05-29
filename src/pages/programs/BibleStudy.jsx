@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import bibleStudyImage from "../../assets/bible-study.jpg";
 
 function BibleStudy() {
   return (
-    <section className="program-detail">
+    <>
+      <Helmet>
+        <title>Bible Study - Hope in Christ City Church</title>
+        <meta name="description" content="Engage in Bible study sessions at Hope in Christ City Church to deepen your understanding of the Word of God and grow in your faith." />
+      </Helmet>
+      <section className="program-detail">
       <h1 className="programs-title">PROGRAMS</h1>
 
       <div className="program-detail-content">
@@ -21,6 +27,7 @@ function BibleStudy() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

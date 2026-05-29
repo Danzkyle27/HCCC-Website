@@ -1,10 +1,21 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -15,8 +26,10 @@ function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
 
         {/* Hamburger Button */}
@@ -28,8 +41,8 @@ function Navbar() {
 
         {/* Nav Links */}
         <ul className={`nav-list ${menuOpen ? "active" : ""}`}>
-          <li><Link to="/" onClick={toggleMenu}>HOME</Link></li>
-          <li><Link to="/programs" onClick={toggleMenu}>PROGRAMS</Link></li>
+          <li><Link to="/" onClick={toggleMenu} className={isActive("/") ? "active" : ""}>HOME</Link></li>
+          <li><Link to="/programs" onClick={toggleMenu} className={isActive("/programs") ? "active" : ""}>PROGRAMS</Link></li>
 
           {/* Dropdown */}
           <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
@@ -44,8 +57,8 @@ function Navbar() {
             </ul>
           </li>
 
-          <li><Link to="/about" onClick={toggleMenu}>ABOUT US</Link></li>
-          <li><Link to="/contact" onClick={toggleMenu}>CONTACT US</Link></li>
+          <li><Link to="/about" onClick={toggleMenu} className={isActive("/about") ? "active" : ""}>ABOUT US</Link></li>
+          <li><Link to="/contact" onClick={toggleMenu} className={isActive("/contact") ? "active" : ""}>CONTACT US</Link></li>
         </ul>
       </div>
     </nav>

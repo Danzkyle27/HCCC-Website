@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import "./Foundation.css";
 
 function StatementOfFaith() {
   return (
-    <div className="foundation-page">
+    <>
+      <Helmet>
+        <title>Statement of Faith - Hope in Christ City Church</title>
+        <meta name="description" content="Read our Statement of Faith covering our beliefs about God, Jesus, the Holy Spirit, the Bible, salvation, the church, and the end times." />
+      </Helmet>
+      <div className="foundation-page">
       <div className="foundation-overlay">
         <h1 className="foundation-title">STATEMENT OF FAITH</h1>
         <hr className="foundation-divider" />
@@ -163,6 +169,7 @@ function StatementOfFaith() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
