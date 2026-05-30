@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import SocialBar from "./components/SocialBar";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollProgress from "./components/ScrollProgress";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
@@ -25,19 +26,31 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   const pageVariants = {
-    initial: { opacity: 0, y: 20 },
-    in: { opacity: 1, y: 0 },
-    out: { opacity: 0, y: -20 },
+    initial: { 
+      opacity: 0, 
+      scale: 0.98,
+      filter: "blur(10px)"
+    },
+    in: { 
+      opacity: 1, 
+      scale: 1,
+      filter: "blur(0px)"
+    },
+    out: { 
+      opacity: 0, 
+      scale: 1.02,
+      filter: "blur(10px)"
+    },
   };
 
   const pageTransition = {
     type: "tween",
-    ease: "easeInOut",
-    duration: 0.5,
+    ease: [0.4, 0, 0.2, 1],
+    duration: 0.6,
   };
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route
           path="/"
@@ -205,6 +218,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <LoadingScreen />
+        <ScrollProgress />
         <Navbar />
         <SocialBar />
         <AnimatedRoutes />

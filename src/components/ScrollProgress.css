@@ -1,0 +1,42 @@
+/* ============================= */
+/*      SCROLL PROGRESS BAR      */
+/* ============================= */
+
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(192, 217, 221, 0.2);
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #5d7b8f, #7fa6b5, #c0d9dd);
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(93, 123, 143, 0.5);
+  position: relative;
+}
+
+.scroll-progress-bar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5));
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}

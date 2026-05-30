@@ -215,21 +215,34 @@
     display: none !important;
     flex-direction: column;
     gap: 15px;
-    position: absolute;
-    top: 100%;
-    right: 0;
+    position: fixed;
+    top: 70px;
+    right: -100%;
     background: rgba(247, 242, 227, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    width: 100%;
-    padding: 20px;
-    border-top: 2px solid rgba(93, 123, 143, 0.2);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    border-radius: 0 0 12px 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 80%;
+    max-width: 350px;
+    height: calc(100vh - 70px);
+    padding: 30px 20px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.2);
+    border-radius: 0;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
   }
 
   .nav-list.active {
     display: flex !important;
+    right: 0;
+  }
+
+  @keyframes fadeInBackdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .nav-list a,

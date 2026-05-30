@@ -1,9 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import logo from "../assets/logo.png";
 import bg from "../assets/bg.png";
+import BibleVerses from "../components/BibleVerses";
 
 function Home() {
+  const logoRef = useRef(null);
+  const textRef = useRef(null);
+  const bibleVersesRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
@@ -16,6 +21,20 @@ function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Immediately show hero elements on mount
+    if (logoRef.current) {
+      logoRef.current.classList.add("is-visible");
+    }
+    if (textRef.current) {
+      textRef.current.classList.add("is-visible");
+    }
+  }, []);
+
+  const scrollToBibleVerses = () => {
+    bibleVersesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -40,14 +59,25 @@ function Home() {
           padding: "40px",
           flexWrap: "wrap",
           textAlign: "center",
+          position: "relative",
         }}
       >
-        <img src={logo} alt="Church Logo" className="hero-logo" loading="eager" />
-        <div className="hero-text">
+        <img 
+          ref={logoRef}
+          src={logo} 
+          alt="Church Logo" 
+          className="hero-logo scale-in" 
+          loading="eager" 
+        />
+        <div ref={textRef} className="hero-text fade-in-section">
           <h1>HOPE IN CHRIST CITY CHURCH</h1>
           <h2>A BIBLE-BELIEVING CHURCH</h2>
         </div>
       </section>
+      
+      <div ref={bibleVersesRef}>
+        <BibleVerses />
+      </div>
     </>
   );
 }

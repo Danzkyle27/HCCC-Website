@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import fbIcon from "../assets/fbicon.png";
 import emailIcon from "../assets/emailicon.png";
@@ -15,6 +15,29 @@ import mapQr from "../assets/mapqr.png";
 function Contact() {
   const secondSectionRef = useRef(null);
   const [enlargedQR, setEnlargedQR] = useState(null);
+  const leftSectionRef = useRef(null);
+  const rightSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (leftSectionRef.current) observer.observe(leftSectionRef.current);
+    if (rightSectionRef.current) observer.observe(rightSectionRef.current);
+
+    return () => {
+      if (leftSectionRef.current) observer.unobserve(leftSectionRef.current);
+      if (rightSectionRef.current) observer.unobserve(rightSectionRef.current);
+    };
+  }, []);
 
   const scrollToNextSection = () => {
     secondSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -22,10 +45,16 @@ function Contact() {
 
   const openQR = (qrImage) => {
     setEnlargedQR(qrImage);
+    // Hide scroll progress bar
+    const scrollProgress = document.querySelector('.scroll-progress-container');
+    if (scrollProgress) scrollProgress.style.display = 'none';
   };
 
   const closeQR = () => {
     setEnlargedQR(null);
+    // Show scroll progress bar again
+    const scrollProgress = document.querySelector('.scroll-progress-container');
+    if (scrollProgress) scrollProgress.style.display = 'block';
   };
 
   return (
@@ -34,7 +63,7 @@ function Contact() {
           <title>Contact Us - Hope in Christ City Church</title>
           <meta name="description" content="Get in touch with Hope in Christ City Church. Find our location, contact information, and visit us in Malabon City, Philippines." />
         </Helmet>
-        
+
         {/* QR Code Modal */}
         {enlargedQR && (
           <div className="qr-modal" onClick={closeQR}>
@@ -46,12 +75,12 @@ function Contact() {
         )}
         {/* First Section */}
         <div
-            className="contact-page contact-section-first"
+            className="contact-page contact-section-first geometric-pattern"
             style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="contact-overlay">
             {/* Left Column */}
-            <div className="contact-left">
+            <div className="contact-left slide-in-left" ref={leftSectionRef}>
               <h1 className="contact-main">CONNECT</h1>
               <h3 className="contact-sub">WITH US</h3>
               <hr className="contact-line" />
@@ -61,7 +90,7 @@ function Contact() {
             </div>
 
             {/* Right Column */}
-            <div className="contact-right">
+            <div className="contact-right slide-in-right" ref={rightSectionRef}>
               <div className="contact-links">
                 <div className="contact-link">
                   <img src={fbIcon} alt="FB Messenger" className="contact-icon" />
@@ -89,7 +118,7 @@ function Contact() {
               </div>
             </div>
           </div>
-          
+
           {/* Scroll Indicator */}
           <div className="scroll-indicator" onClick={scrollToNextSection} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToNextSection()}>
             <div className="scroll-arrow">
@@ -104,7 +133,7 @@ function Contact() {
         {/* Second Section */}
         <div
             ref={secondSectionRef}
-            className="contact-page"
+            className="contact-page geometric-pattern"
             style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="contact-overlay">
