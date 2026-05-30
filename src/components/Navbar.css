@@ -112,6 +112,12 @@
   transform: rotate(180deg);
 }
 
+/* Hide mobile-only Church Foundation items on desktop */
+.mobile-church-foundation-header,
+.mobile-church-foundation-item {
+  display: none;
+}
+
 .nav-list a.active {
   color: #5d7b8f;
   background: rgba(93, 123, 143, 0.1);
@@ -337,75 +343,46 @@
     transform: none;
   }
 
+  /* Hide desktop dropdown on mobile */
   .dropdown {
-    width: 100%;
+    display: none !important;
   }
 
-  .dropbtn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    text-align: left;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    user-select: none;
-    touch-action: manipulation;
-  }
-
-  /* Hide dropdown by default on mobile */
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    background: rgba(93, 123, 143, 0.1);
-    padding: 0;
-    margin: 8px 0 0 0;
-    border-radius: 8px;
-    opacity: 1;
-    transform: none;
-    width: 100%;
-    min-width: auto;
-    max-width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    box-sizing: border-box;
-  }
-
-  /* Show dropdown when open class is present */
-  .dropdown.open .dropdown-content {
-    max-height: 500px;
-    padding: 8px 0;
-  }
-  
-  /* Disable hover on mobile */
-  .dropdown:hover > .dropdown-content {
-    max-height: 0;
-    padding: 0;
-  }
-
-  /* Remove the invisible bridge on mobile */
-  .dropdown::after {
-    display: none;
-  }
-
-  .dropdown-content li {
-    padding: 2px 8px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .dropdown-content li a {
+  /* Show mobile expanded Church Foundation items */
+  .mobile-church-foundation-header {
     font-family: "Roca One", sans-serif;
-    padding: 12px 15px;
-    font-size: 20px;
-    text-align: left;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    color: #5d7b8f;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 12px;
+    margin-top: 10px;
+    border-bottom: 2px solid rgba(93, 123, 143, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-church-foundation-item {
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .mobile-church-foundation-item::before {
+    content: "→";
+    position: absolute;
+    left: 8px;
+    color: #5d7b8f;
+    font-size: 16px;
+  }
+
+  .mobile-church-foundation-item a {
+    font-size: 19px;
+    padding: 10px 12px;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+
+  .mobile-church-foundation-item a:hover {
+    background: rgba(93, 123, 143, 0.1);
+    color: #5d7b8f;
   }
 }

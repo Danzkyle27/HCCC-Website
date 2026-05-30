@@ -65,7 +65,7 @@ function Navbar() {
           <li><Link to="/sermons" onClick={toggleMenu} className={isActive("/sermons") ? "active" : ""}>SERMONS</Link></li>
           <li><Link to="/soul-winning" onClick={toggleMenu} className={isActive("/soul-winning") ? "active" : ""}>HOW TO EVANGELIZE</Link></li>
 
-          {/* Dropdown */}
+          {/* Dropdown - Desktop only, Mobile shows expanded */}
           <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
             <button 
               type="button"
@@ -85,6 +85,21 @@ function Navbar() {
               <li><Link to="/core-values" onClick={() => { toggleMenu(); closeDropdown(); }}>Core Values</Link></li>
               <li><Link to="/statement-of-faith" onClick={() => { toggleMenu(); closeDropdown(); }}>Statement of Faith</Link></li>
             </ul>
+          </li>
+
+          {/* Mobile-only expanded Church Foundation items */}
+          <li className="mobile-church-foundation-header">CHURCH FOUNDATION</li>
+          <li className="mobile-church-foundation-item">
+            <Link to="/mission" onClick={toggleMenu}>Mission</Link>
+          </li>
+          <li className="mobile-church-foundation-item">
+            <Link to="/vision" onClick={toggleMenu}>Vision</Link>
+          </li>
+          <li className="mobile-church-foundation-item">
+            <Link to="/core-values" onClick={toggleMenu}>Core Values</Link>
+          </li>
+          <li className="mobile-church-foundation-item">
+            <Link to="/statement-of-faith" onClick={toggleMenu}>Statement of Faith</Link>
           </li>
 
           <li><Link to="/about" onClick={toggleMenu} className={isActive("/about") ? "active" : ""}>ABOUT US</Link></li>
