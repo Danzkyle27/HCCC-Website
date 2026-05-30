@@ -135,7 +135,7 @@
 }
 
 .dropdown-content {
-  display: none !important;
+  display: none;
   position: absolute;
   background: rgba(247, 242, 227, 0.98);
   backdrop-filter: blur(16px);
@@ -155,7 +155,7 @@
 }
 
 .dropdown:hover > .dropdown-content {
-  display: block !important;
+  display: block;
   opacity: 1;
   transform: translateY(0);
 }
@@ -197,7 +197,7 @@
 }
 
 .dropdown:hover > .dropdown-content {
-  display: block !important;
+  display: block;
 }
 
 .hamburger {
@@ -338,29 +338,29 @@
   }
 
   .dropdown-content {
-    position: static !important;
-    box-shadow: none !important;
-    background: rgba(93, 123, 143, 0.1) !important;
-    padding: 8px 0 !important;
-    margin-left: 20px !important;
-    margin-top: 8px !important;
-    display: none !important;
-    border-radius: 8px !important;
-    opacity: 1 !important;
-    transform: none !important;
-    width: calc(100% - 20px) !important;
-    min-width: auto !important;
+    position: static;
+    box-shadow: none;
+    background: rgba(93, 123, 143, 0.1);
+    padding: 8px 0;
+    margin-left: 20px;
+    margin-top: 8px;
+    display: none;
+    border-radius: 8px;
+    opacity: 1;
+    transform: none;
+    width: calc(100% - 20px);
+    min-width: auto;
     max-height: 300px;
     overflow-y: auto;
   }
 
   .dropdown.open > .dropdown-content {
-    display: block !important;
+    display: block;
   }
   
   /* Remove hover behavior on mobile */
   .dropdown:hover > .dropdown-content {
-    display: none !important;
+    display: none;
   }
 
   /* Remove the invisible bridge on mobile */
