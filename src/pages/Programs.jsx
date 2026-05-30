@@ -42,7 +42,7 @@ function Programs() {
 
       <div className="programs-grid">
         <Link 
-          to="/sunday-service" 
+          to="/programs/sunday-service" 
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[0] = el)}
         >
@@ -51,7 +51,7 @@ function Programs() {
         </Link>
 
         <Link 
-          to="/discipleship" 
+          to="/programs/discipleship" 
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[1] = el)}
         >
@@ -60,7 +60,7 @@ function Programs() {
         </Link>
 
         <Link 
-          to="/bible-study" 
+          to="/programs/bible-study" 
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[2] = el)}
         >

@@ -1,0 +1,154 @@
+.search-component {
+  position: relative;
+}
+
+.search-toggle-btn {
+  background: rgba(93, 123, 143, 0.1);
+  border: 2px solid rgba(93, 123, 143, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #5d7b8f;
+}
+
+.search-toggle-btn:hover {
+  background: rgba(93, 123, 143, 0.2);
+  border-color: #5d7b8f;
+  transform: scale(1.05);
+}
+
+.search-modal {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 400px;
+  max-width: 90vw;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  gap: 10px;
+}
+
+.search-icon {
+  color: #5d7b8f;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: "Roca One", sans-serif;
+  font-size: 15px;
+  color: #2c3e50;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #a0a0a0;
+}
+
+.search-clear-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.search-clear-btn:hover {
+  color: #5d7b8f;
+}
+
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-result-item:hover {
+  background: rgba(93, 123, 143, 0.05);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-title {
+  font-family: "Roca One", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5d7b8f;
+}
+
+.search-result-path {
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.search-no-results {
+  padding: 30px 15px;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.search-no-results p {
+  margin: 0;
+  font-family: "Roca One", sans-serif;
+  font-size: 14px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .search-modal {
+    width: 90vw;
+    right: -20px;
+  }
+
+  .search-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

@@ -1,0 +1,173 @@
+.dark-mode-toggle {
+  background: rgba(93, 123, 143, 0.1);
+  border: 2px solid rgba(93, 123, 143, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #5d7b8f;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(93, 123, 143, 0.2);
+  border-color: #5d7b8f;
+  transform: scale(1.05) rotate(15deg);
+}
+
+.dark-mode-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:active svg {
+  transform: scale(0.9);
+}
+
+/* Dark Mode Styles */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fefae0;
+  --bg-tertiary: #eaf6fc;
+  --text-primary: #22211f;
+  --text-secondary: #2c3e50;
+  --text-tertiary: #5a6c7d;
+  --color-primary: #5d7b8f;
+  --color-secondary: #7fa6b5;
+  --color-accent: #c0d9dd;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-heavy: rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3a3a3a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #b0b0b0;
+  --color-primary: #7fa6b5;
+  --color-secondary: #5d7b8f;
+  --color-accent: #c0d9dd;
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-medium: rgba(255, 255, 255, 0.1);
+  --shadow-heavy: rgba(255, 255, 255, 0.15);
+}
+
+/* Apply dark mode colors */
+.dark-mode body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-mode .navbar {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.95), rgba(58, 58, 58, 0.95));
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav-list a,
+.dark-mode .dropbtn {
+  color: var(--text-primary);
+}
+
+.dark-mode .dropdown-content {
+  background: rgba(45, 45, 45, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .footer {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-mode .breadcrumb-container {
+  background: linear-gradient(135deg, rgba(45, 45, 45, 0.95), rgba(58, 58, 58, 0.95));
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .breadcrumb-item a {
+  color: var(--color-primary);
+}
+
+.dark-mode .welcome-section {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.dark-mode .welcome-title {
+  color: var(--color-primary);
+}
+
+.dark-mode .welcome-text {
+  color: var(--text-secondary);
+}
+
+.dark-mode .service-time-card {
+  background: rgba(45, 45, 45, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .service-time-card h3 {
+  color: var(--color-primary);
+}
+
+.dark-mode .service-time,
+.dark-mode .service-detail {
+  color: var(--text-secondary);
+}
+
+.dark-mode .ministry-card {
+  background: var(--bg-secondary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .ministry-name {
+  color: var(--text-primary);
+}
+
+.dark-mode .ministry-description {
+  color: var(--text-tertiary);
+}
+
+.dark-mode .search-modal {
+  background: var(--bg-secondary);
+}
+
+.dark-mode .search-input {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.dark-mode .search-result-item {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .search-result-item:hover {
+  background: rgba(127, 166, 181, 0.1);
+}
+
+.dark-mode .dark-mode-toggle {
+  background: rgba(127, 166, 181, 0.2);
+  border-color: rgba(127, 166, 181, 0.4);
+  color: #fefae0;
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background: rgba(127, 166, 181, 0.3);
+  border-color: #7fa6b5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .dark-mode-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}

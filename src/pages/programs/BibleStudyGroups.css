@@ -1,0 +1,173 @@
+.bible-study-groups-page {
+  min-height: 100vh;
+  font-family: "Roca One", sans-serif;
+  background: linear-gradient(to bottom, #fefae0 0%, #f5f0d8 100%);
+  padding: clamp(80px, 10vw, 120px) 5% clamp(40px, 6vw, 60px);
+}
+
+/* Header */
+.bible-study-groups-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 60px);
+}
+
+.bible-study-groups-header h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  color: #5d7b8f;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.bible-study-groups-header p {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #2c3e50;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Groups Grid */
+.bible-study-groups-section {
+  max-width: 1400px;
+  margin: 0 auto clamp(50px, 8vw, 80px);
+}
+
+.bible-study-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(25px, 4vw, 35px);
+}
+
+.bible-study-group-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.bible-study-group-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: #5d7b8f;
+}
+
+.bible-study-group-image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bible-study-group-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.bible-study-group-card:hover .bible-study-group-image {
+  transform: scale(1.1);
+}
+
+.bible-study-group-content {
+  padding: clamp(20px, 3vw, 25px);
+}
+
+.bible-study-group-title {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 900;
+  color: #5d7b8f;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.bible-study-group-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bible-study-group-schedule,
+.bible-study-group-leader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(14px, 2.2vw, 16px);
+  color: #2c3e50;
+}
+
+.schedule-icon,
+.leader-icon {
+  font-size: clamp(18px, 2.5vw, 20px);
+}
+
+/* CTA Section */
+.bible-study-groups-cta {
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 100%);
+  padding: clamp(35px, 5vw, 50px);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bible-study-groups-cta h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.bible-study-groups-cta p {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: #fefae0;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.bible-study-groups-cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background: #ffffff;
+  color: #5d7b8f;
+  text-decoration: none;
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bible-study-groups-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: #fefae0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bible-study-groups-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .bible-study-group-image-wrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bible-study-groups-page {
+    padding: clamp(60px, 8vw, 80px) 5% clamp(30px, 4vw, 40px);
+  }
+
+  .bible-study-group-image-wrapper {
+    height: 180px;
+  }
+}

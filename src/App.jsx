@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -8,20 +9,37 @@ import BackToTop from "./components/BackToTop";
 import SocialBar from "./components/SocialBar";
 import LoadingScreen from "./components/LoadingScreen";
 import ScrollProgress from "./components/ScrollProgress";
+import Breadcrumb from "./components/Breadcrumb";
+import StickyCTA from "./components/StickyCTA";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SoulWinning from "./pages/SoulWinning";
+import Ministries from "./pages/Ministries";
 
 import SundayService from "./pages/programs/SundayService";
 import Discipleship from "./pages/programs/Discipleship";
 import BibleStudy from "./pages/programs/BibleStudy";
+import BibleStudyGroups from "./pages/programs/BibleStudyGroups";
+import Sermons from "./pages/Sermons";
+import MinistryDetail from "./pages/ministries/MinistryDetail";
 
 import Mission from "./pages/foundation/Mission";
 import Vision from "./pages/foundation/Vision";
 import CoreValues from "./pages/foundation/CoreValues";
 import StatementOfFaith from "./pages/foundation/StatementOfFaith";
+
+// Scroll to top component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -123,9 +141,51 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route
+          path="/ministries"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Ministries />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/ministries/:slug"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <MinistryDetail />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/sermons"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Sermons />
+            </motion.div>
+          }
+        />
 
         <Route
-          path="/sunday-service"
+          path="/programs/sunday-service"
           element={
             <motion.div
               initial="initial"
@@ -139,7 +199,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/discipleship"
+          path="/programs/discipleship"
           element={
             <motion.div
               initial="initial"
@@ -153,7 +213,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/bible-study"
+          path="/programs/bible-study"
           element={
             <motion.div
               initial="initial"
@@ -163,6 +223,20 @@ function AnimatedRoutes() {
               transition={pageTransition}
             >
               <BibleStudy />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/programs/bible-study/groups"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <BibleStudyGroups />
             </motion.div>
           }
         />
@@ -232,10 +306,13 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <LoadingScreen />
         <ScrollProgress />
         <Navbar />
+        <Breadcrumb />
         <SocialBar />
+        <StickyCTA />
         <AnimatedRoutes />
         <Footer />
         <BackToTop />

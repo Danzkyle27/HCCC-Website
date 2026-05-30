@@ -726,7 +726,29 @@ h2, h3 {
 .program-detail-text p {
   font-size: clamp(16px, 3vw, 33px);
   line-height: 1.8;
+  color: #2c3e50;
+}
+
+.program-detail-link {
+  display: inline-block;
+  margin-top: clamp(20px, 3vw, 30px);
+  padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 36px);
+  background: #5d7b8f;
   color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(14px, 2.5vw, 20px);
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.program-detail-link:hover {
+  background: #7fa6b5;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================= */

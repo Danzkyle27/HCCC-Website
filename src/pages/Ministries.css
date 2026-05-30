@@ -1,0 +1,252 @@
+/* ============================= */
+/*      MINISTRIES PAGE          */
+/* ============================= */
+
+.ministries-page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.ministries-hero {
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
+  padding: clamp(100px, 15vw, 150px) 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ministries-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.03) 60px,
+      rgba(255, 255, 255, 0.03) 120px
+    );
+  pointer-events: none;
+}
+
+.ministries-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ministries-hero-title {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.8s ease-out;
+  font-family: "Roca One", sans-serif;
+}
+
+.ministries-hero-subtitle {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #fefae0;
+  margin: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  font-family: "Roca One", sans-serif;
+}
+
+/* Ministries Section */
+.ministries-section {
+  padding: clamp(80px, 12vw, 120px) 5%;
+  background: linear-gradient(135deg, #fefae0 0%, #eaf6fc 100%);
+}
+
+.ministries-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ministries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.ministry-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.ministry-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--ministry-color);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.ministry-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ministry-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--ministry-color);
+}
+
+.ministry-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ministry-card:nth-child(even) .ministry-icon {
+  animation-delay: 0.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.ministry-name {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-family: "Roca One", sans-serif;
+}
+
+.ministry-description {
+  font-size: clamp(15px, 2.5vw, 17px);
+  line-height: 1.7;
+  color: #5a6c7d;
+  margin: 0 0 20px 0;
+  font-family: "Roca One", sans-serif;
+}
+
+.ministry-learn-more {
+  display: inline-block;
+  font-family: "Roca One", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ministry-color);
+  transition: all 0.3s ease;
+}
+
+.ministry-card:hover .ministry-learn-more {
+  transform: translateX(5px);
+}
+
+/* CTA Section */
+.ministries-cta {
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 100%);
+  padding: clamp(60px, 10vw, 100px) 5%;
+  text-align: center;
+}
+
+.ministries-cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ministries-cta h2 {
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-family: "Roca One", sans-serif;
+}
+
+.ministries-cta p {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #fefae0;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-family: "Roca One", sans-serif;
+}
+
+.ministries-cta-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #ffffff;
+  color: #5d7b8f;
+  text-decoration: none;
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ministries-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #fefae0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ministries-grid {
+    grid-template-columns: 1fr;
+  }
+}

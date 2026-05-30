@@ -21,6 +21,8 @@ function Footer() {
           <div className="footer-links">
             <Link to="/">Home</Link>
             <Link to="/programs">Programs</Link>
+            <Link to="/ministries">Ministries</Link>
+            <Link to="/sermons">Sermons</Link>
             <Link to="/soul-winning">How to Evangelize</Link>
             <Link to="/about">About Us</Link>
             <Link to="/contact">Contact Us</Link>

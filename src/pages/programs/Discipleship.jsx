@@ -9,13 +9,12 @@ function Discipleship() {
         <meta name="description" content="Participate in discipleship training at Hope in Christ City Church. Equip and empower yourself to live a Christ-like life in various aspects of life and ministry." />
       </Helmet>
       <section className="program-detail">
-      <h1 className="programs-title">PROGRAMS</h1>
+      <h1 className="programs-title">DISCIPLESHIP</h1>
 
       <div className="program-detail-content">
         <img src={discipleshipImage} alt="Discipleship" />
 
         <div className="program-detail-text">
-          <h2>DISCIPLESHIP</h2>
           <p>
             Participate in discipleship training
             sessions designed to equip and

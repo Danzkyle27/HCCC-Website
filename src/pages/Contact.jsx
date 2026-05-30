@@ -165,6 +165,31 @@ function Contact() {
                 ></iframe>
               </div>
 
+              {/* Map Actions */}
+              <div className="map-actions">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Hope+in+Christ+City+Church,+25+B.+Rivera+St,+Tinajeros,+Malabon,+Metro+Manila"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="map-directions-btn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                  </svg>
+                  Get Directions
+                </a>
+              </div>
+
               {/* QR Code */}
               <img src={mapQr} alt="Location QR Code" className="contact-small-qr" onClick={() => openQR(mapQr)} />
             </div>

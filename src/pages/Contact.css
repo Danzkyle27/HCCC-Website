@@ -690,3 +690,65 @@
 .contact-small-qr {
   cursor: pointer;
 }
+
+/* ========================= */
+/*   MAP ENHANCEMENTS        */
+/* ========================= */
+
+.map-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.map-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Roca One", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(93, 123, 143, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.map-directions-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(93, 123, 143, 0.5);
+  background: linear-gradient(135deg, #7fa6b5, #5d7b8f);
+}
+
+.map-directions-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.map-directions-btn:hover svg {
+  transform: rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .map-actions {
+    margin-top: 15px;
+  }
+
+  .map-directions-btn {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .map-directions-btn {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}
