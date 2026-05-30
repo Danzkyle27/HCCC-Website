@@ -23,15 +23,15 @@
 }
 
 .search-modal {
-  position: absolute;
-  top: 50px;
-  right: 0;
+  position: fixed;
+  top: 80px;
+  right: 20px;
   width: 400px;
-  max-width: 90vw;
+  max-width: calc(100vw - 40px);
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  z-index: 2000;
   overflow: hidden;
   animation: slideDown 0.3s ease-out;
 }
@@ -143,12 +143,18 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .search-modal {
-    width: 90vw;
-    right: -20px;
+    width: calc(100vw - 40px);
+    right: 20px;
+    left: 20px;
+    max-width: none;
   }
 
   .search-toggle-btn {
     width: 36px;
     height: 36px;
+  }
+
+  .search-input {
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 }

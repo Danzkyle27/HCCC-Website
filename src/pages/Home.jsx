@@ -59,7 +59,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Hope in Christ City Church - A Bible-Believing Church</title>
+        <title>Hope in Christ City Church</title>
         <meta name="description" content="Welcome to Hope in Christ City Church, a Bible-believing church dedicated to spreading the Gospel and serving the community in Malabon City, Philippines." />
       </Helmet>
       <section

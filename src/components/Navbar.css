@@ -314,6 +314,10 @@
     width: 100%;
     text-align: left;
     transform: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   .nav-list a:hover,
@@ -323,6 +327,14 @@
 
   .dropdown {
     width: 100%;
+  }
+
+  .dropbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
 
   .dropdown-content {
@@ -338,6 +350,8 @@
     transform: none !important;
     width: calc(100% - 20px) !important;
     min-width: auto !important;
+    max-height: 300px;
+    overflow-y: auto;
   }
 
   .dropdown.open > .dropdown-content {
@@ -360,8 +374,12 @@
 
   .dropdown-content li a {
     font-family: "Roca One", sans-serif;
-    padding: 10px 15px;
+    padding: 12px 15px;
     font-size: 20px;
     text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 }

@@ -27,7 +27,9 @@ function Navbar() {
     setDropdownOpen(false); 
   };
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setDropdownOpen(!dropdownOpen);
   };
 
