@@ -76,7 +76,8 @@ function Navbar() {
                 toggleDropdown(e);
               }}
             >
-              CHURCH FOUNDATION ▾
+              <span>CHURCH FOUNDATION</span>
+              <span className={`dropdown-arrow ${dropdownOpen ? "open" : ""}`}>▾</span>
             </button>
             <ul className="dropdown-content">
               <li><Link to="/mission" onClick={() => { toggleMenu(); closeDropdown(); }}>Mission</Link></li>
