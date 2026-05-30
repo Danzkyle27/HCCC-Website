@@ -30,7 +30,12 @@ function Navbar() {
   const toggleDropdown = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('Dropdown toggled:', !dropdownOpen); // Debug log
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -62,14 +67,22 @@ function Navbar() {
 
           {/* Dropdown */}
           <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
-            <span className="dropbtn" onClick={toggleDropdown}>
+            <button 
+              type="button"
+              className="dropbtn" 
+              onClick={toggleDropdown}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                toggleDropdown(e);
+              }}
+            >
               CHURCH FOUNDATION ▾
-            </span>
+            </button>
             <ul className="dropdown-content">
-              <li><Link to="/mission" onClick={toggleMenu}>Mission</Link></li>
-              <li><Link to="/vision" onClick={toggleMenu}>Vision</Link></li>
-              <li><Link to="/core-values" onClick={toggleMenu}>Core Values</Link></li>
-              <li><Link to="/statement-of-faith" onClick={toggleMenu}>Statement of Faith</Link></li>
+              <li><Link to="/mission" onClick={() => { toggleMenu(); closeDropdown(); }}>Mission</Link></li>
+              <li><Link to="/vision" onClick={() => { toggleMenu(); closeDropdown(); }}>Vision</Link></li>
+              <li><Link to="/core-values" onClick={() => { toggleMenu(); closeDropdown(); }}>Core Values</Link></li>
+              <li><Link to="/statement-of-faith" onClick={() => { toggleMenu(); closeDropdown(); }}>Statement of Faith</Link></li>
             </ul>
           </li>
 

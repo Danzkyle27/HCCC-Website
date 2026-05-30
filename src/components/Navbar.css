@@ -98,6 +98,8 @@
   border-radius: 8px;
   position: relative;
   white-space: nowrap;
+  background: none;
+  border: none;
 }
 
 .nav-list a.active {
@@ -333,34 +335,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    text-align: left;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     user-select: none;
+    touch-action: manipulation;
   }
 
+  /* Hide dropdown by default on mobile */
   .dropdown-content {
     position: static;
     box-shadow: none;
     background: rgba(93, 123, 143, 0.1);
-    padding: 8px 0;
-    margin-left: 20px;
-    margin-top: 8px;
-    display: none;
+    padding: 0;
+    margin: 8px 0 0 20px;
     border-radius: 8px;
     opacity: 1;
     transform: none;
     width: calc(100% - 20px);
     min-width: auto;
-    max-height: 300px;
-    overflow-y: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
   }
 
-  .dropdown.open > .dropdown-content {
-    display: block;
+  /* Show dropdown when open class is present */
+  .dropdown.open .dropdown-content {
+    max-height: 500px;
+    padding: 8px 0;
   }
   
-  /* Remove hover behavior on mobile */
+  /* Disable hover on mobile */
   .dropdown:hover > .dropdown-content {
-    display: none;
+    max-height: 0;
+    padding: 0;
   }
 
   /* Remove the invisible bridge on mobile */
@@ -377,7 +385,7 @@
     padding: 12px 15px;
     font-size: 20px;
     text-align: left;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     min-height: 44px;
     display: flex;
     align-items: center;
