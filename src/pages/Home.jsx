@@ -1,13 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import logo from "../assets/logo.png";
-import bg from "../assets/bg.png";
-import BibleVerses from "../components/BibleVerses";
+import bg from "../assets/bg.jpg";
 
 function Home() {
   const logoRef = useRef(null);
   const textRef = useRef(null);
-  const bibleVersesRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +29,6 @@ function Home() {
       textRef.current.classList.add("is-visible");
     }
   }, []);
-
-  const scrollToBibleVerses = () => {
-    bibleVersesRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <>
@@ -74,10 +68,6 @@ function Home() {
           <h2>A BIBLE-BELIEVING CHURCH</h2>
         </div>
       </section>
-      
-      <div ref={bibleVersesRef}>
-        <BibleVerses />
-      </div>
     </>
   );
 }

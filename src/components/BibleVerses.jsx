@@ -63,7 +63,7 @@ function BibleVerses() {
   return (
     <section className="bible-verses-section">
       <div className="bible-verses-container">
-        <h2 className="bible-verses-title">HOW TO SOUL-WIN?</h2>
+        <h2 className="bible-verses-title">HOW TO EVANGELIZE?</h2>
         <p className="bible-verses-subtitle">The Path to Salvation</p>
         
         <div className={`verse-card ${isAnimating ? "fade-out" : "fade-in"}`}>

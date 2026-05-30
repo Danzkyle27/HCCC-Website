@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import SoulWinning from "./pages/SoulWinning";
 
 import SundayService from "./pages/programs/SundayService";
 import Discipleship from "./pages/programs/Discipleship";
@@ -105,6 +106,20 @@ function AnimatedRoutes() {
               transition={pageTransition}
             >
               <Contact />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/soul-winning"
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <SoulWinning />
             </motion.div>
           }
         />

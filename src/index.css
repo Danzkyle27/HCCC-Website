@@ -369,6 +369,14 @@ h2, h3 {
   display: inline-block;
 }
 
+/* Mobile: white text for better readability */
+@media (max-width: 768px) {
+  .hero-text h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+}
+
 .hero-text h2:hover {
   transform: translateY(-3px);
   text-shadow: 0 4px 12px rgba(93, 123, 143, 0.3);

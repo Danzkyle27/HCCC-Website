@@ -43,6 +43,7 @@ function Navbar() {
         <ul className={`nav-list ${menuOpen ? "active" : ""}`}>
           <li><Link to="/" onClick={toggleMenu} className={isActive("/") ? "active" : ""}>HOME</Link></li>
           <li><Link to="/programs" onClick={toggleMenu} className={isActive("/programs") ? "active" : ""}>PROGRAMS</Link></li>
+          <li><Link to="/soul-winning" onClick={toggleMenu} className={isActive("/soul-winning") ? "active" : ""}>HOW TO EVANGELIZE</Link></li>
 
           {/* Dropdown */}
           <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
