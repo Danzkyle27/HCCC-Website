@@ -589,6 +589,8 @@ h2, h3 {
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   overflow: hidden;
   position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .program-card::before {
@@ -610,8 +612,8 @@ h2, h3 {
 }
 
 .program-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 20px 50px rgba(93, 123, 143, 0.35);
+  transform: translateY(-15px) scale(1.03) rotateX(5deg);
+  box-shadow: 0 25px 60px rgba(93, 123, 143, 0.4);
   border-color: rgba(255,255,255,0.5);
 }
 
@@ -711,7 +713,7 @@ h2, h3 {
 }
 
 .program-detail-text:hover {
-  background: rgba(254, 250, 224, 0.45);
+  background: rgba(254, 250, 224, 0.85);
   box-shadow: 0 16px 48px rgba(0,0,0,0.25);
   transform: translateY(-5px);
 }
@@ -992,3 +994,575 @@ button:active::after, .button:active::after {
     background-position: 80px 140px, 80px 140px, 120px 210px, 120px 210px;
   }
 }
+
+/* ============================= */
+/*   LAZY LOADING IMAGES         */
+/* ============================= */
+
+img {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Remove blur effect from lazy loading */
+img[loading="lazy"] {
+  filter: none;
+  opacity: 1;
+}
+
+img[loading="lazy"].loaded {
+  filter: none;
+  opacity: 1;
+}
+
+/* Blur-up effect for images */
+.blur-load {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.blur-load img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.blur-load img.loaded {
+  opacity: 1;
+}
+
+.blur-load::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(20px);
+  transform: scale(1.1);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.blur-load.loaded::before {
+  opacity: 0;
+}
+
+/* ============================= */
+/*   PRINT STYLES                */
+/* ============================= */
+
+@media print {
+  /* Hide non-essential elements */
+  .navbar,
+  .footer,
+  .back-to-top,
+  .social-bar,
+  .sticky-cta,
+  .scroll-progress-container,
+  .breadcrumb,
+  .search-component,
+  .dark-mode-toggle,
+  button,
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* Reset backgrounds for print */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure content is visible */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Keep images visible */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Improve typography for print */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Show link URLs */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+  /* Don't show URLs for internal links */
+  a[href^="#"]:after,
+  a[href^="/"]:after {
+    content: "";
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Optimize spacing */
+  .hero,
+  .welcome-section,
+  .service-times-section,
+  .programs-section,
+  .ministries-section {
+    padding: 20px !important;
+    margin: 20px 0 !important;
+  }
+}
+
+/* ============================= */
+/*   SMOOTH SCROLL BEHAVIOR      */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================= */
+/*   ACCESSIBILITY IMPROVEMENTS  */
+/* ============================= */
+
+/* Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+  
+  .button,
+  .cta-button {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* Dark mode improvements - Toggle-based only */
+.dark-mode {
+  --color-bg: #1a1a1a;
+  --color-text: #f5f5f5;
+}
+
+.dark-mode body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Navbar dark mode */
+.dark-mode .navbar {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(40, 40, 40, 0.95));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .navbar.scrolled {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.98), rgba(30, 30, 30, 0.98));
+}
+
+.dark-mode .nav-list a,
+.dark-mode .dropbtn {
+  color: #f5f5f5;
+}
+
+.dark-mode .nav-list a:hover,
+.dark-mode .dropbtn:hover {
+  background: rgba(93, 123, 143, 0.3);
+  color: #c0d9dd;
+}
+
+.dark-mode .dropdown-content {
+  background: rgba(30, 30, 30, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dropdown-content li a {
+  color: #f5f5f5;
+}
+
+.dark-mode .dropdown-content li a:hover {
+  background: rgba(93, 123, 143, 0.3);
+  color: #c0d9dd;
+}
+
+/* Breadcrumb dark mode */
+.dark-mode .breadcrumb-container {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode .breadcrumb a,
+.dark-mode .breadcrumb span {
+  color: #c0d9dd;
+}
+
+/* Cards dark mode */
+.dark-mode .program-card,
+.dark-mode .ministry-card,
+.dark-mode .service-time-card {
+  background: rgba(30, 30, 30, 0.9);
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .program-card:hover,
+.dark-mode .ministry-card:hover,
+.dark-mode .service-time-card:hover {
+  background: rgba(40, 40, 40, 0.95);
+  border-color: rgba(93, 123, 143, 0.5);
+}
+
+/* Program detail text dark mode */
+.dark-mode .program-detail-text {
+  background: rgba(30, 30, 30, 0.85);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .program-detail-text:hover {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.dark-mode .program-detail-text p {
+  color: #e0e0e0;
+}
+
+/* Ministry detail cards dark mode */
+.dark-mode .ministry-detail-card {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Foundation pages dark mode */
+.dark-mode .foundation-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  position: relative;
+}
+
+.dark-mode .foundation-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .foundation-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-content {
+  background: rgba(30, 30, 30, 0.7);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-content:hover {
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.dark-mode .foundation-list li {
+  color: #e0e0e0;
+}
+
+.dark-mode .foundation-title {
+  color: #f5f5f5;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-grid > div {
+  background: rgba(30, 30, 30, 0.7);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-grid > div:hover {
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.dark-mode .foundation-grid h2 {
+  color: #f5f5f5;
+}
+
+.dark-mode .foundation-grid p {
+  color: #e0e0e0;
+}
+
+/* Sections dark mode */
+.dark-mode .welcome-section,
+.dark-mode .service-times-section,
+.dark-mode .ministries-section,
+.dark-mode .programs-section,
+.dark-mode .sermons-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Add dark overlay to programs section background */
+.dark-mode .programs {
+  position: relative;
+}
+
+.dark-mode .programs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dark-mode .programs-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.dark-mode .programs-title {
+  position: relative;
+  z-index: 2;
+}
+
+.dark-mode .programs::after {
+  z-index: 2;
+}
+
+.dark-mode .ministries-hero,
+.dark-mode .sermons-hero,
+.dark-mode .program-detail {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Hero sections dark mode */
+.dark-mode .ministries-hero-title,
+.dark-mode .sermons-hero-title,
+.dark-mode .programs-title {
+  color: #f5f5f5;
+}
+
+.dark-mode .ministries-hero-subtitle,
+.dark-mode .sermons-hero-subtitle {
+  color: #c0d9dd;
+}
+
+/* Footer dark mode */
+.dark-mode .footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .footer h3,
+.dark-mode .footer p,
+.dark-mode .footer a {
+  color: #e0e0e0;
+}
+
+.dark-mode .footer a:hover {
+  color: #c0d9dd;
+}
+
+/* Headings dark mode */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: #f5f5f5;
+}
+
+/* Text dark mode */
+.dark-mode p,
+.dark-mode span,
+.dark-mode li {
+  color: #e0e0e0;
+}
+
+/* Buttons dark mode */
+.dark-mode .cta-button.primary,
+.dark-mode .ministries-cta-button,
+.dark-mode .sermons-cta-button {
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  color: #ffffff;
+}
+
+.dark-mode .cta-button.secondary {
+  border-color: #7fa6b5;
+  color: #7fa6b5;
+}
+
+.dark-mode .cta-button.secondary:hover {
+  background: #7fa6b5;
+  color: #ffffff;
+}
+
+/* Sermon cards dark mode */
+.dark-mode .sermon-card {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+}
+
+.dark-mode .sermon-title {
+  color: #f5f5f5;
+}
+
+.dark-mode .sermon-description {
+  color: #c0c0c0;
+}
+
+/* Ministry CTA dark mode */
+.dark-mode .ministries-cta,
+.dark-mode .sermons-cta {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+/* Get Involved section dark mode */
+.dark-mode .ministry-cta-section {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+.dark-mode .ministry-cta-button {
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  color: #ffffff;
+}
+
+/* Soul Winning / How to Evangelize dark mode */
+.dark-mode .soul-winning-page,
+.dark-mode .soul-winning-hero,
+.dark-mode .soul-winning-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .soul-winning-card,
+.dark-mode .step-card {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .soul-winning-card:hover,
+.dark-mode .step-card:hover {
+  background: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .soul-winning-title,
+.dark-mode .soul-winning-subtitle {
+  color: #f5f5f5;
+}
+
+/* Ministry Detail dark mode */
+.dark-mode .ministry-detail-page,
+.dark-mode .ministry-detail-upper {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .ministry-detail-description,
+.dark-mode .ministry-leaders-section {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .ministry-detail-description:hover,
+.dark-mode .ministry-leaders-section:hover {
+  background: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .ministry-detail-description p,
+.dark-mode .leader-name {
+  color: #e0e0e0;
+}
+
+.dark-mode .ministry-cta-section {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+/* Bible Study Groups dark mode */
+.dark-mode .bible-study-groups-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .bible-study-groups-hero {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+.dark-mode .group-card {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .group-card:hover {
+  background: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .group-title,
+.dark-mode .group-schedule,
+.dark-mode .group-leader {
+  color: #e0e0e0;
+}
+
+/* Program detail pages dark mode - add gradient */
+.dark-mode .program-detail {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+}
+
+/* Navbar consistency - always dark in dark mode */
+.dark-mode .navbar {
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(40, 40, 40, 0.95)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .navbar.scrolled {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.98), rgba(30, 30, 30, 0.98)) !important;
+}
+

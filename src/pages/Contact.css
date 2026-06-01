@@ -752,3 +752,65 @@
     padding: 10px 20px;
   }
 }
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .contact-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .contact-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .contact-main,
+.dark-mode .contact-sub {
+  color: #f5f5f5;
+}
+
+.dark-mode .contact-desc {
+  color: #e0e0e0;
+}
+
+.dark-mode .contact-line {
+  background: linear-gradient(90deg, #f5f5f5, rgba(245, 245, 245, 0.5), transparent);
+}
+
+.dark-mode .contact-link {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .contact-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(127, 166, 181, 0.5);
+}
+
+.dark-mode .scroll-arrow span {
+  background: #f5f5f5;
+}
+
+.dark-mode .scroll-text {
+  color: #f5f5f5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .scroll-indicator:hover .scroll-arrow span {
+  background: #c0d9dd;
+  box-shadow: 0 4px 12px rgba(192, 217, 221, 0.6);
+}
+
+.dark-mode .scroll-indicator:hover .scroll-text {
+  color: #c0d9dd;
+}

@@ -46,7 +46,7 @@ function Programs() {
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[0] = el)}
         >
-          <img src={sundayService} alt="Sunday Service" />
+          <img src={sundayService} alt="Sunday Service" loading="lazy" />
           <h2>SUNDAY SERVICE</h2>
         </Link>
 
@@ -55,7 +55,7 @@ function Programs() {
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[1] = el)}
         >
-          <img src={discipleship} alt="Discipleship" />
+          <img src={discipleship} alt="Discipleship" loading="lazy" />
           <h2>DISCIPLESHIP</h2>
         </Link>
 
@@ -64,7 +64,7 @@ function Programs() {
           className="program-card enhanced-image-hover fade-in-section"
           ref={(el) => (cardsRef.current[2] = el)}
         >
-          <img src={bibleStudy} alt="Bible Study" />
+          <img src={bibleStudy} alt="Bible Study" loading="lazy" />
           <h2>BIBLE STUDY</h2>
         </Link>
       </div>

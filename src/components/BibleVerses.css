@@ -124,7 +124,7 @@
 }
 
 .verse-card::before {
-  content: """;
+  content: "\201C";
   position: absolute;
   top: 10px;
   left: 20px;
@@ -136,7 +136,7 @@
 }
 
 .verse-card::after {
-  content: """;
+  content: "\201D";
   position: absolute;
   bottom: -20px;
   right: 20px;
@@ -288,4 +288,65 @@
     height: 45px;
     font-size: 24px;
   }
+}
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .bible-verses-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+}
+
+.dark-mode .verse-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .verse-card:hover {
+  background: rgba(40, 40, 40, 0.95);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .verse-card::before,
+.dark-mode .verse-card::after {
+  color: rgba(127, 166, 181, 0.1);
+}
+
+.dark-mode .verse-step {
+  color: #7fa6b5;
+}
+
+.dark-mode .verse-reference {
+  color: #c0d9dd;
+}
+
+.dark-mode .verse-text {
+  color: #e0e0e0;
+}
+
+.dark-mode .indicator {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .indicator:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .indicator.active {
+  background: #7fa6b5;
+  box-shadow: 0 2px 8px rgba(127, 166, 181, 0.5);
+}
+
+.dark-mode .nav-button {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(127, 166, 181, 0.3);
 }

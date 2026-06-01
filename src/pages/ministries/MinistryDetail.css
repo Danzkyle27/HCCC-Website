@@ -317,3 +317,73 @@
     height: 90px;
   }
 }
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .ministry-detail-upper {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+}
+
+.dark-mode .ministry-detail-description {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .ministry-detail-description h2 {
+  color: #7fa6b5;
+}
+
+.dark-mode .ministry-detail-description p {
+  color: #e0e0e0;
+}
+
+.dark-mode .ministry-heads-section {
+  background: rgba(30, 30, 30, 0.9);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .ministry-heads-section h2 {
+  color: #7fa6b5;
+}
+
+.dark-mode .ministry-head-name {
+  color: #e0e0e0;
+}
+
+.dark-mode .ministry-head-image-wrapper {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .ministry-head-card:hover .ministry-head-image-wrapper {
+  border-color: #7fa6b5;
+}
+
+.dark-mode .ministry-detail-cta-section {
+  background: linear-gradient(to bottom, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .ministry-detail-cta {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+}
+
+.dark-mode .ministry-detail-cta h2 {
+  color: #f5f5f5;
+}
+
+.dark-mode .ministry-detail-cta p {
+  color: #c0d9dd;
+}
+
+.dark-mode .ministry-cta-button {
+  background: #7fa6b5;
+  color: #ffffff;
+}
+
+.dark-mode .ministry-cta-button:hover {
+  background: #c0d9dd;
+  color: #1a1a1a;
+}

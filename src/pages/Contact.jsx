@@ -94,7 +94,7 @@ function Contact() {
               <div className="contact-links">
                 <div className="contact-link">
                   <img src={fbIcon} alt="FB Messenger" className="contact-icon" />
-                  <span>m.me/61553567229644</span>
+                  <span>m.me/HopeInChristCityChurch</span>
                 </div>
                 <div className="contact-link">
                   <img src={emailIcon} alt="Email" className="contact-icon" />

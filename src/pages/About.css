@@ -360,3 +360,60 @@
     font-size: 12px;
   }
 }
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .about-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .about-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .about-text {
+  background: rgba(30, 30, 30, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .about-text:hover {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.dark-mode .second-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .second-overlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(30, 30, 30, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .second-overlay:hover {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.dark-mode .second-divider {
+  background: linear-gradient(90deg, #f5f5f5, rgba(245, 245, 245, 0.5), transparent);
+}

@@ -171,3 +171,60 @@
     height: 180px;
   }
 }
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .bible-study-groups-page {
+  background: linear-gradient(to bottom, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .bible-study-groups-header h1 {
+  color: #f5f5f5;
+}
+
+.dark-mode .bible-study-groups-header p {
+  color: #c0d9dd;
+}
+
+.dark-mode .bible-study-group-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .bible-study-group-card:hover {
+  background: rgba(40, 40, 40, 0.95);
+  border-color: #7fa6b5;
+}
+
+.dark-mode .bible-study-group-title {
+  color: #7fa6b5;
+}
+
+.dark-mode .bible-study-group-schedule,
+.dark-mode .bible-study-group-leader {
+  color: #e0e0e0;
+}
+
+.dark-mode .bible-study-groups-cta {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+}
+
+.dark-mode .bible-study-groups-cta h2 {
+  color: #f5f5f5;
+}
+
+.dark-mode .bible-study-groups-cta p {
+  color: #c0d9dd;
+}
+
+.dark-mode .bible-study-groups-cta-button {
+  background: #7fa6b5;
+  color: #ffffff;
+}
+
+.dark-mode .bible-study-groups-cta-button:hover {
+  background: #c0d9dd;
+  color: #1a1a1a;
+}

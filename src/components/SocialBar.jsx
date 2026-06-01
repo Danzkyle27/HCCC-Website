@@ -4,7 +4,7 @@ function SocialBar() {
   return (
     <div className="social-bar">
       <a 
-        href="https://m.me/61553567229644" 
+        href="https://m.me/HopeInChristCityChurch"
         target="_blank" 
         rel="noopener noreferrer" 
         className="social-link facebook"

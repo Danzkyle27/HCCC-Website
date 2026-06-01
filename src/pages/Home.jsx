@@ -17,6 +17,11 @@ function Home() {
       if (parallax) {
         parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
       }
+      
+      // Parallax effect for logo only
+      if (logoRef.current) {
+        logoRef.current.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 - scrolled * 0.0003})`;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -87,7 +92,8 @@ function Home() {
           src={logo} 
           alt="Church Logo" 
           className="hero-logo scale-in" 
-          loading="eager" 
+          loading="eager"
+          style={{ willChange: 'transform' }}
         />
         <div ref={textRef} className="hero-text fade-in-section">
           <h1>HOPE IN CHRIST CITY CHURCH</h1>

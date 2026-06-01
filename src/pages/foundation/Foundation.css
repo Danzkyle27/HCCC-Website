@@ -396,3 +396,93 @@
     line-height: 1.7;
   }
 }
+
+/* ============================= */
+/*        DARK MODE              */
+/* ============================= */
+
+.dark-mode .foundation-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  position: relative;
+}
+
+.dark-mode .foundation-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .foundation-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-content {
+  background: rgba(30, 30, 30, 0.7);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-content:hover {
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.dark-mode .foundation-title {
+  color: #f5f5f5;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-divider {
+  background: linear-gradient(90deg, transparent, #f5f5f5, transparent);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-list li {
+  color: #e0e0e0;
+}
+
+.dark-mode .foundation-list li::before {
+  color: #7fa6b5;
+}
+
+.dark-mode .foundation-list li:hover::before {
+  color: #c0d9dd;
+}
+
+.dark-mode .foundation-grid > div {
+  background: rgba(30, 30, 30, 0.7);
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .foundation-grid > div:hover {
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.dark-mode .foundation-grid h2 {
+  color: #f5f5f5;
+}
+
+.dark-mode .foundation-grid h2::after {
+  background: linear-gradient(90deg, #f5f5f5, rgba(245, 245, 245, 0.3));
+}
+
+.dark-mode .foundation-grid p {
+  color: #e0e0e0;
+}
+
+.dark-mode .foundation-ref {
+  color: #c0d9dd;
+}
