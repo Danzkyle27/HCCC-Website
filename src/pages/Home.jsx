@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import bg from "../assets/bg.jpg";
+import ScrollDownIndicator from "../components/ScrollDownIndicator";
 import "./Home.css";
 
 function Home() {
@@ -99,6 +100,7 @@ function Home() {
           <h1>HOPE IN CHRIST CITY CHURCH</h1>
           <h2>A BIBLE-BELIEVING CHURCH</h2>
         </div>
+        <ScrollDownIndicator />
       </section>
 
       {/* Welcome Section */}

@@ -1566,3 +1566,288 @@ html {
   background: linear-gradient(135deg, rgba(20, 20, 20, 0.98), rgba(30, 30, 30, 0.98)) !important;
 }
 
+
+
+/* ============================= */
+/*   ENHANCED HOVER EFFECTS      */
+/* ============================= */
+
+/* Magnetic button effect */
+.magnetic-button {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effect for CTAs */
+.cta-button,
+.button,
+.ministry-cta-button,
+.program-detail-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before,
+.button::before,
+.ministry-cta-button::before,
+.program-detail-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-button:hover::before,
+.button:hover::before,
+.ministry-cta-button:hover::before,
+.program-detail-link:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Enhanced card hover with scale and glow */
+.program-card,
+.ministry-card,
+.service-time-card,
+.bible-study-group-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.program-card:hover,
+.ministry-card:hover,
+.service-time-card:hover,
+.bible-study-group-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(93, 123, 143, 0.3);
+}
+
+.dark-mode .program-card:hover,
+.dark-mode .ministry-card:hover,
+.dark-mode .service-time-card:hover,
+.dark-mode .bible-study-group-card:hover {
+  box-shadow: 0 20px 50px rgba(127, 166, 181, 0.4);
+}
+
+/* Image zoom on hover */
+.enhanced-image-hover img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhanced-image-hover:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* ============================= */
+/*   TYPOGRAPHY ENHANCEMENTS     */
+/* ============================= */
+
+/* Gradient text for main headings */
+.gradient-text {
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-mode .gradient-text {
+  background: linear-gradient(135deg, #7fa6b5 0%, #c0d9dd 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Letter spacing animation on hover */
+.programs-title,
+.ministries-hero-title,
+.service-times-title {
+  transition: letter-spacing 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.programs-title:hover,
+.ministries-hero-title:hover,
+.service-times-title:hover {
+  letter-spacing: 4px;
+}
+
+/* ============================= */
+/*   GLASS MORPHISM EFFECTS      */
+/* ============================= */
+
+.glassmorphism {
+  background: rgba(254, 250, 224, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .glassmorphism {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================= */
+/*   NEUMORPHISM EFFECTS         */
+/* ============================= */
+
+.neumorphism {
+  background: #fefae0;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.1),
+    -12px -12px 24px rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+}
+
+.dark-mode .neumorphism {
+  background: #2a2a2a;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.5),
+    -12px -12px 24px rgba(60, 60, 60, 0.2);
+}
+
+/* ============================= */
+/*   SPLIT SECTION DIVIDERS      */
+/* ============================= */
+
+/* Diagonal divider */
+.diagonal-divider {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.diagonal-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #fefae0 0%, #eaf6fc 100%);
+  clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+.dark-mode .diagonal-divider::after {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Curved divider */
+.curved-divider {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.curved-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #fefae0;
+  clip-path: ellipse(50% 100% at 50% 100%);
+}
+
+.dark-mode .curved-divider::after {
+  background: #1a1a1a;
+}
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.wave-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23fefae0'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: cover;
+}
+
+.dark-mode .wave-divider::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%231a1a1a'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: cover;
+}
+
+/* ============================= */
+/*   MICRO-INTERACTIONS          */
+/* ============================= */
+
+/* Input focus animation */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #5d7b8f;
+  box-shadow: 0 0 0 3px rgba(93, 123, 143, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: #7fa6b5;
+  box-shadow: 0 0 0 3px rgba(127, 166, 181, 0.2);
+}
+
+/* Loading state animation */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.dark-mode .loading::before {
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border: 3px solid rgba(93, 123, 143, 0.3);
+  border-top-color: #5d7b8f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  z-index: 2;
+}
+
+.dark-mode .loading::after {
+  border-color: rgba(127, 166, 181, 0.3);
+  border-top-color: #7fa6b5;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

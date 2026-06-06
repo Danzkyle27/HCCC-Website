@@ -1,23 +1,29 @@
+/* Back to Top Button */
 .back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  color: #ffffff;
   border: none;
-  color: white;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(93, 123, 143, 0.4);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 9999;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(93, 123, 143, 0.3);
+}
+
+.dark-mode .back-to-top {
+  background: linear-gradient(135deg, #7fa6b5, #c0d9dd);
+  box-shadow: 0 4px 15px rgba(127, 166, 181, 0.5);
 }
 
 .back-to-top.visible {
@@ -27,33 +33,42 @@
 }
 
 .back-to-top:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(93, 123, 143, 0.6);
-  background: linear-gradient(135deg, #7fa6b5, #5d7b8f);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(93, 123, 143, 0.5);
+}
+
+.dark-mode .back-to-top:hover {
+  box-shadow: 0 8px 25px rgba(127, 166, 181, 0.7);
 }
 
 .back-to-top:active {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
 }
 
-.back-to-top svg {
-  animation: bounceArrow 2s ease-in-out infinite;
+/* Ripple effect */
+.back-to-top::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
-@keyframes bounceArrow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+.back-to-top:active::before {
+  width: 100px;
+  height: 100px;
 }
 
 @media (max-width: 768px) {
   .back-to-top {
-    bottom: 20px;
-    right: 20px;
     width: 45px;
     height: 45px;
+    bottom: 20px;
+    right: 20px;
   }
 }

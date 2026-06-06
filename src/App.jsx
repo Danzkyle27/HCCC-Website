@@ -11,6 +11,8 @@ import LoadingScreen from "./components/LoadingScreen";
 import ScrollProgress from "./components/ScrollProgress";
 import Breadcrumb from "./components/Breadcrumb";
 import StickyCTA from "./components/StickyCTA";
+import PageLoader from "./components/PageLoader";
+import ParticleBackground from "./components/ParticleBackground";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
@@ -307,6 +309,8 @@ function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
+        <PageLoader />
+        <ParticleBackground />
         <LoadingScreen />
         <ScrollProgress />
         <Navbar />
