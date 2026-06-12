@@ -216,7 +216,7 @@ function Ministries() {
           <div className="ministries-cta-content">
             <h2>Get Involved</h2>
             <p>Discover your calling and serve with us. Contact us to learn more about joining a ministry.</p>
-            <a href="/contact" className="ministries-cta-button">Contact Us</a>
+            <Link to="/contact" className="ministries-cta-button">Contact Us</Link>
           </div>
         </section>
       </div>
