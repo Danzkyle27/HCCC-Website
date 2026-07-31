@@ -1,0 +1,74 @@
+.premium-card {
+  position: relative;
+  background: rgba(254, 250, 224, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-card.hoverable {
+  cursor: pointer;
+}
+
+.premium-card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(93, 123, 143, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.premium-card:hover .premium-card-glow {
+  opacity: 1;
+}
+
+.premium-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Variants */
+.premium-card.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.premium-card.bordered {
+  border: 3px solid;
+  border-image: linear-gradient(135deg, #5d7b8f, #7fa6b5, #c0d9dd) 1;
+}
+
+.premium-card.gradient {
+  background: linear-gradient(135deg, rgba(93, 123, 143, 0.1), rgba(127, 166, 181, 0.1));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode */
+.dark-mode .premium-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .premium-card.glass {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .premium-card-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(127, 166, 181, 0.2) 0%,
+    transparent 70%
+  );
+}

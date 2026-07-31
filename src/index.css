@@ -441,7 +441,7 @@ h2, h3 {
   background-size: cover;
   min-height: 100vh;
   width: 100%;
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   position: relative;
   overflow: hidden;
 }
@@ -1850,4 +1850,120 @@ select:focus {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ============================================= */
+/*   DARK MODE — NEW MODERNIZED SECTIONS (2025)  */
+/* ============================================= */
+
+/* ----- Programs Page ----- */
+.dark-mode .programs-hero-section {
+  background:
+    linear-gradient(160deg, rgba(17, 17, 17, 0.88) 0%, rgba(20, 30, 38, 0.85) 50%, rgba(17, 17, 17, 0.9) 100%),
+    url('./assets/prog_bg.png') center center / cover no-repeat !important;
+}
+
+.dark-mode .programs-hero-section p {
+  color: #b0b8be !important;
+}
+
+.dark-mode .programs.geometric-pattern {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(93, 123, 143, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 90%, rgba(50, 80, 95, 0.08) 0%, transparent 45%),
+    linear-gradient(175deg, #111 0%, #1a1a1a 50%, #141e24 100%) !important;
+}
+
+/* ----- Ministries Page ----- */
+.dark-mode .ministries-hero-section {
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(60, 90, 110, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(30, 50, 65, 0.15) 0%, transparent 50%),
+    linear-gradient(145deg, #111 0%, #1a1a1a 30%, #1e2a32 60%, #141e24 100%) !important;
+}
+
+.dark-mode .ministries-hero-section p {
+  color: rgba(200, 210, 215, 0.9) !important;
+}
+
+.dark-mode .ministries-grid-section {
+  background:
+    radial-gradient(ellipse at 95% 5%, rgba(93, 123, 143, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 5% 95%, rgba(50, 80, 95, 0.09) 0%, transparent 45%),
+    linear-gradient(160deg, #111 0%, #1a1a1a 40%, #151f26 100%) !important;
+}
+
+.dark-mode .ministries-cta-section {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(60, 90, 110, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(30, 50, 65, 0.15) 0%, transparent 50%),
+    linear-gradient(145deg, #111 0%, #1a1a1a 35%, #1e2a32 65%, #141e24 100%) !important;
+}
+
+.dark-mode .ministries-cta-section p {
+  color: rgba(200, 210, 215, 0.9) !important;
+}
+
+/* ----- About Page ----- */
+.dark-mode .about-cta-section {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(60, 90, 110, 0.18) 0%, transparent 50%),
+    linear-gradient(135deg, #111 0%, #1a1a1a 50%, #141e24 100%) !important;
+}
+
+.dark-mode .about-cta-text {
+  color: rgba(200, 210, 215, 0.95) !important;
+}
+
+/* ----- Contact Page ----- */
+.dark-mode .contact-hero-section {
+  background:
+    linear-gradient(rgba(5, 10, 15, 0.88), rgba(5, 10, 15, 0.94)) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.dark-mode .contact-methods-section {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(93, 123, 143, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(50, 80, 95, 0.09) 0%, transparent 50%),
+    linear-gradient(155deg, #111 0%, #1a1a1a 40%, #141e24 100%) !important;
+}
+
+.dark-mode .contact-methods-section h2 {
+  color: #c0d9dd !important;
+}
+
+.dark-mode .contact-methods-section h3 {
+  color: #7fa6b5 !important;
+}
+
+.dark-mode .contact-methods-section p {
+  color: #d0d0d0 !important;
+}
+
+.dark-mode .contact-location-section {
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(60, 90, 110, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(30, 50, 65, 0.15) 0%, transparent 50%),
+    linear-gradient(145deg, #111 0%, #1a1a1a 30%, #1e2a32 60%, #141e24 100%) !important;
+}
+
+.dark-mode .contact-location-card {
+  background: rgba(18, 18, 18, 0.98) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 24px;
+}
+
+.dark-mode .contact-location-card h3 {
+  color: #7fa6b5 !important;
+}
+
+.dark-mode .contact-location-card p {
+  color: #d0d0d0 !important;
+}
+
+/* Scan for location label specifically */
+.dark-mode .contact-location-card > div > p:last-child {
+  color: #7fa6b5 !important;
 }

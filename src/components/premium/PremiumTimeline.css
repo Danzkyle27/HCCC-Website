@@ -1,0 +1,138 @@
+.premium-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.timeline-item.left {
+  left: 0;
+  padding-right: 60px;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  padding-left: 60px;
+  text-align: left;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.timeline-item.left .timeline-marker {
+  right: -20px;
+}
+
+.timeline-item.right .timeline-marker {
+  left: -20px;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(93, 123, 143, 0.2), 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content {
+  background: rgba(254, 250, 224, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+  font-family: "Roca One", sans-serif;
+  font-size: 24px;
+  color: #2c3e50;
+  margin: 15px 0 10px;
+}
+
+.timeline-content p {
+  color: #5d7b8f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 30px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 80px !important;
+    padding-right: 20px !important;
+    text-align: left !important;
+  }
+
+  .timeline-marker {
+    left: 10px !important;
+  }
+}
+
+/* Dark mode */
+.dark-mode .timeline-content {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .timeline-content h3 {
+  color: #ffffff;
+}
+
+.dark-mode .timeline-content p {
+  color: #c0d9dd;
+}

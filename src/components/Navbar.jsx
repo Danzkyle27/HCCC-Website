@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import Search from "./Search";
 import DarkModeToggle from "./DarkModeToggle";
 import logo from "../assets/logo.png";
@@ -40,14 +41,46 @@ function Navbar() {
 
   const isActive = (path) => location.pathname === path;
 
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <motion.nav 
+      className={`navbar ${scrolled ? "scrolled" : ""}`}
+      initial="hidden"
+      animate="visible"
+      variants={navVariants}
+    >
       <div className="navbar-container">
         {/* Logo - Only show when not on home page */}
         {!isHomePage && (
-          <Link to="/" className="navbar-logo">
-            <img src={logo} alt="HCCC Logo" />
-          </Link>
+          <motion.div variants={itemVariants}>
+            <Link to="/" className="navbar-logo">
+              <motion.img 
+                src={logo} 
+                alt="HCCC Logo"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+            </Link>
+          </motion.div>
         )}
 
         {/* Hamburger Button */}
@@ -58,15 +91,21 @@ function Navbar() {
         </div>
 
         {/* Nav Links */}
-        <ul className={`nav-list ${menuOpen ? "active" : ""}`}>
-          <li><Link to="/" onClick={toggleMenu} className={isActive("/") ? "active" : ""}>HOME</Link></li>
-          <li><Link to="/programs" onClick={toggleMenu} className={isActive("/programs") ? "active" : ""}>PROGRAMS</Link></li>
-          <li><Link to="/ministries" onClick={toggleMenu} className={isActive("/ministries") ? "active" : ""}>MINISTRIES</Link></li>
-          <li><Link to="/sermons" onClick={toggleMenu} className={isActive("/sermons") ? "active" : ""}>SERMONS</Link></li>
-          <li><Link to="/soul-winning" onClick={toggleMenu} className={isActive("/soul-winning") ? "active" : ""}>HOW TO EVANGELIZE</Link></li>
+        <motion.ul 
+          className={`nav-list ${menuOpen ? "active" : ""}`}
+          variants={navVariants}
+        >
+          <motion.li variants={itemVariants}><Link to="/" onClick={toggleMenu} className={isActive("/") ? "active" : ""}>HOME</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/programs" onClick={toggleMenu} className={isActive("/programs") ? "active" : ""}>PROGRAMS</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/ministries" onClick={toggleMenu} className={isActive("/ministries") ? "active" : ""}>MINISTRIES</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/sermons" onClick={toggleMenu} className={isActive("/sermons") ? "active" : ""}>SERMONS</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/soul-winning" onClick={toggleMenu} className={isActive("/soul-winning") ? "active" : ""}>HOW TO EVANGELIZE</Link></motion.li>
 
           {/* Dropdown - Desktop only, Mobile shows expanded */}
-          <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
+          <motion.li 
+            className={`dropdown ${dropdownOpen ? "open" : ""}`}
+            variants={itemVariants}
+          >
             <button 
               type="button"
               className="dropbtn" 
@@ -85,34 +124,38 @@ function Navbar() {
               <li><Link to="/core-values" onClick={() => { toggleMenu(); closeDropdown(); }}>Core Values</Link></li>
               <li><Link to="/statement-of-faith" onClick={() => { toggleMenu(); closeDropdown(); }}>Statement of Faith</Link></li>
             </ul>
-          </li>
+          </motion.li>
 
           {/* Mobile-only expanded Church Foundation items */}
           <li className="mobile-church-foundation-header">CHURCH FOUNDATION</li>
-          <li className="mobile-church-foundation-item">
+          <motion.li className="mobile-church-foundation-item" variants={itemVariants}>
             <Link to="/mission" onClick={toggleMenu}>Mission</Link>
-          </li>
-          <li className="mobile-church-foundation-item">
+          </motion.li>
+          <motion.li className="mobile-church-foundation-item" variants={itemVariants}>
             <Link to="/vision" onClick={toggleMenu}>Vision</Link>
-          </li>
-          <li className="mobile-church-foundation-item">
+          </motion.li>
+          <motion.li className="mobile-church-foundation-item" variants={itemVariants}>
             <Link to="/core-values" onClick={toggleMenu}>Core Values</Link>
-          </li>
-          <li className="mobile-church-foundation-item">
+          </motion.li>
+          <motion.li className="mobile-church-foundation-item" variants={itemVariants}>
             <Link to="/statement-of-faith" onClick={toggleMenu}>Statement of Faith</Link>
-          </li>
+          </motion.li>
 
-          <li><Link to="/about" onClick={toggleMenu} className={isActive("/about") ? "active" : ""}>ABOUT US</Link></li>
-          <li><Link to="/contact" onClick={toggleMenu} className={isActive("/contact") ? "active" : ""}>CONTACT US</Link></li>
-        </ul>
+          <motion.li variants={itemVariants}><Link to="/about" onClick={toggleMenu} className={isActive("/about") ? "active" : ""}>ABOUT US</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/contact" onClick={toggleMenu} className={isActive("/contact") ? "active" : ""}>CONTACT US</Link></motion.li>
+        </motion.ul>
 
         {/* Dark Mode Toggle */}
-        <DarkModeToggle />
+        <motion.div variants={itemVariants}>
+          <DarkModeToggle />
+        </motion.div>
 
         {/* Search Component */}
-        <Search />
+        <motion.div variants={itemVariants}>
+          <Search />
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

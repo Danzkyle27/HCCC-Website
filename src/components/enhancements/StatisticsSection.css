@@ -1,0 +1,139 @@
+.statistics-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, rgba(93, 123, 143, 0.05), rgba(127, 166, 181, 0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+.statistics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.statistics-title {
+  font-family: "Roca One", sans-serif;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #2c3e50;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.stat-card {
+  background: rgba(254, 250, 224, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #5d7b8f, #7fa6b5, #c0d9dd);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.stat-card.in-view::before {
+  transform: scaleX(1);
+}
+
+.stat-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.stat-number {
+  font-family: "Roca One", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #5d7b8f;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+.stat-description {
+  font-size: 14px;
+  color: #7fa6b5;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Hover effect */
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(93, 123, 143, 0.4);
+}
+
+/* Dark mode */
+.dark-mode .statistics-section {
+  background: linear-gradient(135deg, rgba(93, 123, 143, 0.1), rgba(127, 166, 181, 0.1));
+}
+
+.dark-mode .statistics-title {
+  color: #ffffff;
+}
+
+.dark-mode .stat-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .stat-label {
+  color: #c0d9dd;
+}
+
+.dark-mode .stat-description {
+  color: #7fa6b5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .statistics-section {
+    padding: 60px 20px;
+  }
+
+  .statistics-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .stat-number {
+    font-size: 42px;
+  }
+}

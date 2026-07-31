@@ -1,0 +1,20 @@
+.split-text {
+  display: inline-block;
+}
+
+.split-text-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.split-text-char,
+.split-text-word {
+  display: inline-block;
+  white-space: pre;
+}
+
+.split-text-line {
+  display: block;
+  overflow: hidden;
+}

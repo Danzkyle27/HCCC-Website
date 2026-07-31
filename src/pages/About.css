@@ -1,419 +1,522 @@
-/* First Section */
-.about-page {
+/* ======================================================= */
+/*   ABOUT US PAGE — Full Modernization                    */
+/* ======================================================= */
+
+/* ── SECTION 1 · HERO ── */
+
+.about-hero {
+  position: relative;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  padding: 80px 20px 50px 20px;
+  padding: 120px 40px 100px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* dark photo overlay so text pops */
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 0;
+}
+
+.about-hero-content {
   position: relative;
-}
-
-.about-overlay {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 40px;
-  text-align: justify;
-}
-
-.about-text {
-  font-family: "Roca One", sans-serif;
-  font-size: 25px;
-  line-height: 1.9;
-  color: #ffffff;
-  font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  padding: 30px;
-  background: rgba(93, 123, 143, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  transition: all 0.4s ease;
-}
-
-.about-text:hover {
-  background: rgba(93, 123, 143, 0.2);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-  transform: translateY(-3px);
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .about-logo {
   display: block;
-  margin: 0 auto 30px auto;
-  max-width: 200px;
+  margin: 0 auto 30px;
+  max-width: 180px;
   height: auto;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.4));
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+  animation: floatLogo 6s ease-in-out infinite;
 }
 
 .about-logo:hover {
-  transform: scale(1.05) translateY(-5px);
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+  transform: scale(1.06) translateY(-6px);
+  filter: drop-shadow(0 12px 30px rgba(93, 123, 143, 0.5));
 }
 
-/* Second Section */
-.second-page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.about-hero-title {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  font-family: "Roca Two", "Roca One", sans-serif;
+}
+
+.about-hero-sub {
+  font-size: clamp(17px, 2.5vw, 22px);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.about-hero-badges {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 80px 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-out;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.second-overlay {
-  max-width: 600px;
-  width: 100%;
-  padding: 40px;
-  text-align: left;
-  color: #ffffff;
-  background: rgba(93, 123, 143, 0.2);
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: rgba(254, 250, 224, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
-  transition: all 0.5s ease;
-}
-
-.second-overlay:hover {
-  background: rgba(93, 123, 143, 0.25);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-  transform: translateY(-5px);
-}
-
-.second-title {
-  font-family: "Roca Two", "Roca One", sans-serif;
-  font-size: 50px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.second-title:hover {
-  transform: translateY(-3px);
-  text-shadow: 0 4px 12px rgba(255,255,255,0.3);
-}
-
-.second-divider {
-  border: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5), transparent);
-  margin: 15px 0 25px 0;
-  border-radius: 2px;
-}
-
-.second-text {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
   font-family: "Roca One", sans-serif;
-  font-size: 35px;
-  line-height: 1.8;
+  letter-spacing: 0.3px;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
-.second-text:hover {
-  transform: translateX(5px);
+.about-badge:hover {
+  background: rgba(254, 250, 224, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
 }
 
-/* Fade-in animation */
-.fade-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================= */
-/*    RESPONSIVE STYLES          */
-/* ============================= */
-
-/* Tablets (portrait & landscape) */
-@media (max-width: 1024px) {
-  .about-text {
-    font-size: 22px;
-    line-height: 1.8;
-  }
-
-  .second-title {
-    font-size: 40px;
-  }
-
-  .second-text {
-    font-size: 28px;
-  }
-}
-
-/* Mobile phones */
-@media (max-width: 768px) {
-  .about-overlay {
-    padding: 0 20px;
-  }
-
-  .about-text {
-    font-size: 20px;
-    line-height: 1.7;
-  }
-
-  .about-logo {
-    max-width: 150px;
-    margin-bottom: 20px;
-  }
-
-  .second-page {
-    justify-content: center;
-    text-align: center;
-    padding: 60px 15px;
-  }
-
-  .second-overlay {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .second-title {
-    font-size: 32px;
-  }
-
-  .second-text {
-    font-size: 22px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .about-text {
-    font-size: 18px;
-  }
-
-  .second-title {
-    font-size: 26px;
-  }
-
-  .second-text {
-    font-size: 18px;
-    line-height: 1.6;
-  }
-
-  .about-logo {
-    max-width: 120px;
-  }
-}
-
-
-/* ========================= */
-/*     SCROLL INDICATOR      */
-/* ========================= */
-
-.scroll-indicator {
+/* Scroll hint */
+.about-scroll-hint {
   position: absolute;
-  bottom: 80px;
+  bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  z-index: 100;
-  animation: fadeInUp 1s ease-out 0.5s both;
-  cursor: pointer;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-family: "Roca One", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: bounceHint 2.4s ease-in-out infinite;
+}
+
+.about-scroll-arrow {
+  width: 22px;
+  height: 22px;
+  border-right: 3px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 1; }
+}
+
+/* ── SECTION 2 · WHO WE ARE ── */
+
+.about-who-section {
+  padding: clamp(80px, 10vw, 120px) clamp(20px, 5vw, 80px);
+  background: linear-gradient(135deg, #fefae0 0%, #eaf6fc 100%);
+}
+
+.about-who-inner {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.about-who-label {
+  font-family: "Roca One", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #5d7b8f;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.about-who-title {
+  font-size: clamp(28px, 4.5vw, 46px);
+  font-weight: 900;
+  margin-bottom: 36px;
+  font-family: "Roca Two", "Roca One", sans-serif;
+  color: #5d7b8f;
+}
+
+.about-who-text {
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.85;
+  color: #3a4a56;
+  margin-bottom: 24px;
+  font-family: "Roca One", sans-serif;
+}
+
+/* Pillars grid */
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-pillar-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 20px rgba(93, 123, 143, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-10px);
+  border-color: #c0d9dd;
+  box-shadow: 0 18px 45px rgba(93, 123, 143, 0.2);
+}
+
+.about-pillar-icon {
+  font-size: 48px;
+  margin-bottom: 18px;
+  display: block;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.about-pillar-card:nth-child(2) .about-pillar-icon { animation-delay: 0.4s; }
+.about-pillar-card:nth-child(3) .about-pillar-icon { animation-delay: 0.8s; }
+.about-pillar-card:nth-child(4) .about-pillar-icon { animation-delay: 1.2s; }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.about-pillar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #5d7b8f;
+  margin-bottom: 12px;
+  font-family: "Roca Two", "Roca One", sans-serif;
+}
+
+.about-pillar-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5a6c7d;
+  margin: 0;
+  font-family: "Roca One", sans-serif;
+}
+
+/* ── SECTION 3 · PASTOR ── */
+
+.about-pastor-section {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 80px clamp(20px, 6vw, 100px);
+  overflow: hidden;
+}
+
+.about-pastor-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 0;
+}
+
+.about-pastor-content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  width: 100%;
+}
+
+.about-pastor-card {
+  background: rgba(93, 123, 143, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  padding: 48px 44px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-pastor-card:hover {
+  background: rgba(93, 123, 143, 0.26);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+}
+
+.about-pastor-tag {
+  font-family: "Roca One", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.about-pastor-rule {
+  border: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.4), transparent);
+  margin: 14px 0 28px;
+  border-radius: 2px;
+}
+
+.about-pastor-name {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
 }
 
-.scroll-indicator:hover {
-  transform: translateX(-50%) translateY(-5px);
+.about-pastor-name:hover {
+  text-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+  transform: translateX(4px);
 }
 
-.scroll-indicator:hover .scroll-arrow span {
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.6);
-}
-
-.scroll-indicator:hover .scroll-text {
-  opacity: 1;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
-}
-
-.scroll-arrow {
-  width: 30px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.scroll-arrow span {
-  display: block;
-  width: 20px;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  animation: scrollAnimation 2s ease-in-out infinite;
-}
-
-.scroll-arrow span:nth-child(1) {
-  animation-delay: 0s;
-  width: 12px;
-}
-
-.scroll-arrow span:nth-child(2) {
-  animation-delay: 0.15s;
-  width: 20px;
-}
-
-.scroll-arrow span:nth-child(3) {
-  animation-delay: 0.3s;
-  width: 12px;
-}
-
-.scroll-text {
+.about-pastor-bio {
   font-family: "Roca One", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  animation: pulse 2s ease-in-out infinite;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 32px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes scrollAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
+/* ── SECTION 4 · CTA ── */
+
+.about-cta-section {
+  padding: clamp(80px, 10vw, 120px) clamp(20px, 5vw, 60px);
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle animated pattern in CTA bg */
+.about-cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(255, 255, 255, 0.03) 60px,
+    rgba(255, 255, 255, 0.03) 120px
+  );
+  pointer-events: none;
+}
+
+.about-cta-text {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 760px;
+  margin: 36px auto 48px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.about-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================================================= */
+/*   RESPONSIVE                                            */
+/* ======================================================= */
+
+@media (max-width: 1024px) {
+  .about-pastor-section {
+    justify-content: center;
   }
-  50% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10px);
+  .about-pastor-content {
+    max-width: 600px;
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* Hide scroll indicator on second section */
-.about-page:not(.about-section-first) .scroll-indicator {
-  display: none;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-  .scroll-indicator {
-    bottom: 60px;
+  .about-hero {
+    padding: 100px 24px 80px;
   }
-  
-  .scroll-text {
-    font-size: 14px;
+  .about-logo {
+    max-width: 140px;
   }
-  
-  .scroll-arrow {
-    width: 24px;
-    height: 40px;
+  .about-hero-badges {
+    gap: 10px;
   }
-  
-  .scroll-arrow span {
-    width: 16px;
-    height: 2px;
+  .about-badge {
+    font-size: 13px;
+    padding: 8px 16px;
   }
-  
-  .scroll-arrow span:nth-child(1),
-  .scroll-arrow span:nth-child(3) {
-    width: 10px;
+  .about-pastor-section {
+    padding: 60px 20px;
+    justify-content: center;
+    background-position: center;
+  }
+  .about-pastor-content {
+    max-width: 100%;
+  }
+  .about-pastor-card {
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .about-pastor-rule {
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  }
+  .about-cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .scroll-indicator {
-    bottom: 50px;
+  .about-hero-title {
+    font-size: 26px;
   }
-  
-  .scroll-text {
-    font-size: 12px;
+  .about-pastor-name {
+    font-size: 22px;
+  }
+  .about-pillars {
+    grid-template-columns: 1fr;
   }
 }
 
-/* ============================= */
-/*        DARK MODE              */
-/* ============================= */
+/* ======================================================= */
+/*   DARK MODE                                             */
+/* ======================================================= */
 
-.dark-mode .about-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
-  pointer-events: none;
+/* Hero — deepen overlay */
+.dark-mode .about-hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.75) 60%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
 }
 
-.dark-mode .about-overlay {
-  position: relative;
-  z-index: 1;
+.dark-mode .about-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-.dark-mode .about-text {
-  background: rgba(30, 30, 30, 0.85);
-  border-color: rgba(255, 255, 255, 0.1);
+/* Who we are */
+.dark-mode .about-who-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
 }
 
-.dark-mode .about-text:hover {
-  background: rgba(40, 40, 40, 0.9);
+.dark-mode .about-who-label {
+  color: #7fa6b5;
 }
 
-.dark-mode .second-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
-  pointer-events: none;
+.dark-mode .about-who-title {
+  color: #c0d9dd;
 }
 
-.dark-mode .second-overlay {
-  position: relative;
-  z-index: 1;
-  background: rgba(30, 30, 30, 0.85);
-  border-color: rgba(255, 255, 255, 0.1);
+.dark-mode .about-who-text {
+  color: #c8c8c8;
 }
 
-.dark-mode .second-overlay:hover {
-  background: rgba(40, 40, 40, 0.9);
+.dark-mode .about-pillar-card {
+  background: rgba(30, 30, 30, 0.95);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-.dark-mode .second-divider {
-  background: linear-gradient(90deg, #f5f5f5, rgba(245, 245, 245, 0.5), transparent);
+.dark-mode .about-pillar-card:hover {
+  border-color: #5d7b8f;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .about-pillar-title {
+  color: #7fa6b5;
+}
+
+.dark-mode .about-pillar-desc {
+  color: #a0a0a0;
+}
+
+/* Pastor */
+.dark-mode .about-pastor-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+.dark-mode .about-pastor-card {
+  background: rgba(15, 15, 15, 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark-mode .about-pastor-card:hover {
+  background: rgba(20, 20, 20, 0.82);
+}
+
+/* CTA */
+.dark-mode .about-cta-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
+}
+
+.dark-mode .about-cta-text {
+  color: rgba(224, 224, 224, 0.95) !important;
 }

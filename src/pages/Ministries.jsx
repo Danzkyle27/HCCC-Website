@@ -1,34 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Ministries.css";
+import { GradientText, PremiumButton } from "../components/premium";
+import { BoldText } from "../components/luxury";
+import SectionDivider from "../components/enhancements/SectionDivider";
+import RevealOnScroll from "../components/RevealOnScroll";
 
 function Ministries() {
-  const ministriesRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    ministriesRef.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      ministriesRef.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
   const ministries = [
     {
       id: 1,
@@ -178,48 +156,128 @@ function Ministries() {
         <link rel="canonical" href="https://hopeinchristcitychurch.org/ministries" />
       </Helmet>
 
-      <div className="ministries-page">
-        {/* Hero Section */}
-        <section className="ministries-hero">
-          <div className="ministries-hero-content">
-            <h1 className="ministries-hero-title">Our Ministries</h1>
-            <p className="ministries-hero-subtitle">
-              Serving God and our community through diverse ministries
-            </p>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="ministries-hero-section" style={{ 
+        padding: '120px 20px 80px',
+        background: `
+          radial-gradient(ellipse at 15% 40%, rgba(254, 250, 224, 0.2) 0%, transparent 55%),
+          radial-gradient(ellipse at 85% 70%, rgba(192, 217, 221, 0.15) 0%, transparent 50%),
+          linear-gradient(145deg, #4a6b7c 0%, #5d7b8f 25%, #7fa6b5 55%, #5d7b8f 80%, #3d5a6b 100%)
+        `,
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <RevealOnScroll variant="fade-down">
+          <BoldText size="xlarge" align="center" className="luxury-hero-text">
+            {`Our Ministries
+Serve and Grow
+Together`}
+          </BoldText>
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0.2}>
+          <p style={{ 
+            fontSize: '22px', 
+            color: 'rgba(255,255,255,0.95)', 
+            maxWidth: '900px', 
+            margin: '40px auto 0',
+            lineHeight: '1.8',
+            textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+          }}>
+            Discover your calling and make a difference in our community through 
+            diverse ministries that serve God and His people.
+          </p>
+        </RevealOnScroll>
+      </section>
 
-        {/* Ministries Grid */}
-        <section className="ministries-section">
-          <div className="ministries-container">
-            <div className="ministries-grid">
-              {ministries.map((ministry, index) => (
+      <SectionDivider variant="wave" animated={true} />
+
+      {/* Ministries Grid */}
+      <section className="ministries-section ministries-grid-section" style={{ 
+        padding: '120px 20px',
+        background: `
+          radial-gradient(ellipse at 95% 5%, rgba(93, 123, 143, 0.1) 0%, transparent 45%),
+          radial-gradient(ellipse at 5% 95%, rgba(192, 217, 221, 0.15) 0%, transparent 45%),
+          radial-gradient(ellipse at 50% 50%, rgba(127, 166, 181, 0.07) 0%, transparent 60%),
+          linear-gradient(160deg, #eaf6fc 0%, #f5faf7 30%, #fefae0 60%, #eaf6fc 100%)
+        `
+      }}>
+        <div className="ministries-container">
+          <RevealOnScroll variant="fade-down">
+            <h2 style={{ 
+              fontSize: 'clamp(32px, 5vw, 48px)', 
+              color: '#5d7b8f',
+              marginBottom: '60px',
+              fontWeight: '900',
+              textAlign: 'center'
+            }}>
+              <GradientText animate={true}>All Ministries</GradientText>
+            </h2>
+          </RevealOnScroll>
+
+          <div className="ministries-grid">
+            {ministries.map((ministry, index) => (
+              <RevealOnScroll key={ministry.id} variant="fade-up" delay={index * 0.05}>
                 <Link
                   to={`/ministries/${ministry.slug}`}
-                  key={ministry.id}
-                  ref={(el) => (ministriesRef.current[index] = el)}
-                  className="ministry-card fade-in-section"
+                  className="ministry-card"
                   style={{ "--ministry-color": ministry.color }}
                 >
                   <div className="ministry-icon">{ministry.icon}</div>
                   <h3 className="ministry-name">{ministry.name}</h3>
                   <p className="ministry-description">{ministry.description}</p>
-                  <span className="ministry-learn-more">Learn More →</span>
+                  <div style={{ marginTop: '20px' }}>
+                    <PremiumButton variant="outline" size="small">
+                      Learn More →
+                    </PremiumButton>
+                  </div>
                 </Link>
-              ))}
-            </div>
+              </RevealOnScroll>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Call to Action */}
-        <section className="ministries-cta">
-          <div className="ministries-cta-content">
-            <h2>Get Involved</h2>
-            <p>Discover your calling and serve with us. Contact us to learn more about joining a ministry.</p>
-            <Link to="/contact" className="ministries-cta-button">Contact Us</Link>
-          </div>
-        </section>
-      </div>
+      <SectionDivider variant="wave" animated={true} />
+
+      {/* Call to Action */}
+      <section className="ministries-cta-section" style={{ 
+        padding: '120px 20px',
+        background: `
+          radial-gradient(ellipse at 20% 30%, rgba(254, 250, 224, 0.15) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 70%, rgba(192, 217, 221, 0.2) 0%, transparent 50%),
+          linear-gradient(145deg, #3d5a6b 0%, #5d7b8f 30%, #7fa6b5 60%, #a8ccda 85%, #c0d9dd 100%)
+        `,
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <RevealOnScroll variant="fade-down">
+          <BoldText size="medium" align="center">
+            {`Get Involved
+Make an Impact`}
+          </BoldText>
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0.2}>
+          <p style={{ 
+            fontSize: 'clamp(18px, 2.5vw, 22px)', 
+            color: 'rgba(255,255,255,0.95)',
+            maxWidth: '800px',
+            margin: '40px auto',
+            lineHeight: '1.8'
+          }}>
+            Discover your calling and serve with us. Contact us today to learn more 
+            about joining a ministry and making a difference.
+          </p>
+        </RevealOnScroll>
+        <RevealOnScroll variant="scale" delay={0.4}>
+          <Link to="/contact">
+            <PremiumButton variant="primary" size="large">
+              Contact Us Today
+            </PremiumButton>
+          </Link>
+        </RevealOnScroll>
+      </section>
     </>
   );
 }

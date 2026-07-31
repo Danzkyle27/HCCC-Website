@@ -13,12 +13,20 @@ import Breadcrumb from "./components/Breadcrumb";
 import StickyCTA from "./components/StickyCTA";
 import PageLoader from "./components/PageLoader";
 import ParticleBackground from "./components/ParticleBackground";
+import SmoothScroll from "./components/SmoothScroll";
+import AnimatedBackground from "./components/AnimatedBackground";
+import PageTransition from "./components/PageTransition";
+import PerformanceMonitor from "./components/PerformanceMonitor";
+import { ToastProvider } from "./components/enhancements";
+import SmoothThemeTransition from "./components/enhancements/SmoothThemeTransition";
+
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SoulWinning from "./pages/SoulWinning";
 import Ministries from "./pages/Ministries";
+import LuxuryShowcase from "./pages/LuxuryShowcase";
 
 import SundayService from "./pages/programs/SundayService";
 import Discipleship from "./pages/programs/Discipleship";
@@ -46,259 +54,26 @@ function ScrollToTop() {
 function AnimatedRoutes() {
   const location = useLocation();
 
-  const pageVariants = {
-    initial: { 
-      opacity: 0, 
-      scale: 0.98,
-      filter: "blur(10px)"
-    },
-    in: { 
-      opacity: 1, 
-      scale: 1,
-      filter: "blur(0px)"
-    },
-    out: { 
-      opacity: 0, 
-      scale: 1.02,
-      filter: "blur(10px)"
-    },
-  };
-
-  const pageTransition = {
-    type: "tween",
-    ease: [0.4, 0, 0.2, 1],
-    duration: 0.6,
-  };
-
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Home />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/programs"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Programs />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <About />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Contact />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/soul-winning"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <SoulWinning />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/ministries"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Ministries />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/ministries/:slug"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <MinistryDetail />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/sermons"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Sermons />
-            </motion.div>
-          }
-        />
-
-        <Route
-          path="/programs/sunday-service"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <SundayService />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/programs/discipleship"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Discipleship />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/programs/bible-study"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <BibleStudy />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/programs/bible-study/groups"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <BibleStudyGroups />
-            </motion.div>
-          }
-        />
-
-        <Route
-          path="/mission"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Mission />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/vision"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <Vision />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/core-values"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <CoreValues />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/statement-of-faith"
-          element={
-            <motion.div
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <StatementOfFaith />
-            </motion.div>
-          }
-        />
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/programs" element={<PageTransition><Programs /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/soul-winning" element={<PageTransition><SoulWinning /></PageTransition>} />
+        <Route path="/ministries" element={<PageTransition><Ministries /></PageTransition>} />
+        <Route path="/ministries/:slug" element={<PageTransition><MinistryDetail /></PageTransition>} />
+        <Route path="/sermons" element={<PageTransition><Sermons /></PageTransition>} />
+        <Route path="/programs/sunday-service" element={<PageTransition><SundayService /></PageTransition>} />
+        <Route path="/programs/discipleship" element={<PageTransition><Discipleship /></PageTransition>} />
+        <Route path="/programs/bible-study" element={<PageTransition><BibleStudy /></PageTransition>} />
+        <Route path="/programs/bible-study/groups" element={<PageTransition><BibleStudyGroups /></PageTransition>} />
+        <Route path="/mission" element={<PageTransition><Mission /></PageTransition>} />
+        <Route path="/vision" element={<PageTransition><Vision /></PageTransition>} />
+        <Route path="/core-values" element={<PageTransition><CoreValues /></PageTransition>} />
+        <Route path="/statement-of-faith" element={<PageTransition><StatementOfFaith /></PageTransition>} />
+        <Route path="/luxury-showcase" element={<PageTransition><LuxuryShowcase /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -307,20 +82,27 @@ function AnimatedRoutes() {
 function App() {
   return (
     <HelmetProvider>
-      <Router>
-        <ScrollToTop />
-        <PageLoader />
-        <ParticleBackground />
-        <LoadingScreen />
-        <ScrollProgress />
-        <Navbar />
-        <Breadcrumb />
-        <SocialBar />
-        <StickyCTA />
-        <AnimatedRoutes />
-        <Footer />
-        <BackToTop />
-      </Router>
+      <ToastProvider>
+        <Router>
+          <SmoothScroll>
+            <PerformanceMonitor />
+            <SmoothThemeTransition />
+            <ScrollToTop />
+            <AnimatedBackground />
+            <PageLoader />
+            <ParticleBackground />
+            <LoadingScreen />
+            <ScrollProgress />
+            <Navbar />
+            <Breadcrumb />
+            <SocialBar />
+            <StickyCTA />
+            <AnimatedRoutes />
+            <Footer />
+            <BackToTop />
+          </SmoothScroll>
+        </Router>
+      </ToastProvider>
     </HelmetProvider>
   );
 }

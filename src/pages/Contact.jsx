@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import fbIcon from "../assets/fbicon.png";
 import emailIcon from "../assets/emailicon.png";
@@ -11,51 +11,33 @@ import viberQr from "../assets/viberqr.png";
 import ytQr from "../assets/ytqr.png";
 import bgImage from "../assets/contact.png";
 import mapQr from "../assets/mapqr.png";
+import { GradientText, PremiumButton } from "../components/premium";
+import { BoldText, LuxuryCard } from "../components/luxury";
+import SectionDivider from "../components/enhancements/SectionDivider";
+import RevealOnScroll from "../components/RevealOnScroll";
+import AnimatedCard from "../components/AnimatedCard";
 
 function Contact() {
-  const secondSectionRef = useRef(null);
   const [enlargedQR, setEnlargedQR] = useState(null);
-  const leftSectionRef = useRef(null);
-  const rightSectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (leftSectionRef.current) observer.observe(leftSectionRef.current);
-    if (rightSectionRef.current) observer.observe(rightSectionRef.current);
-
-    return () => {
-      if (leftSectionRef.current) observer.unobserve(leftSectionRef.current);
-      if (rightSectionRef.current) observer.unobserve(rightSectionRef.current);
-    };
-  }, []);
-
-  const scrollToNextSection = () => {
-    secondSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const openQR = (qrImage) => {
     setEnlargedQR(qrImage);
-    // Hide scroll progress bar
     const scrollProgress = document.querySelector('.scroll-progress-container');
     if (scrollProgress) scrollProgress.style.display = 'none';
   };
 
   const closeQR = () => {
     setEnlargedQR(null);
-    // Show scroll progress bar again
     const scrollProgress = document.querySelector('.scroll-progress-container');
     if (scrollProgress) scrollProgress.style.display = 'block';
   };
+
+  const contactMethods = [
+    { icon: fbIcon, text: 'm.me/HopeInChristCityChurch', qr: fbQr, label: 'Facebook Messenger' },
+    { icon: emailIcon, text: 'inquiries@hopeinchristcitychurch.org', qr: emailQr, label: 'Email' },
+    { icon: phoneIcon, text: '09185468892', qr: viberQr, label: 'Phone/Viber' },
+    { icon: ytIcon, text: 'youtube.com/@HopeInChristCityChurch', qr: ytQr, label: 'YouTube' }
+  ];
 
   return (
       <>
@@ -73,128 +55,232 @@ function Contact() {
             </div>
           </div>
         )}
-        {/* First Section */}
-        <div
-            className="contact-page contact-section-first geometric-pattern"
-            style={{ backgroundImage: `url(${bgImage})` }}
-        >
-          <div className="contact-overlay">
-            {/* Left Column */}
-            <div className="contact-left slide-in-left" ref={leftSectionRef}>
-              <h1 className="contact-main">CONNECT</h1>
-              <h3 className="contact-sub">WITH US</h3>
-              <hr className="contact-line" />
-              <p className="contact-desc">
-                If you are interested, you may follow and contact us through the following:
-              </p>
-            </div>
 
-            {/* Right Column */}
-            <div className="contact-right slide-in-right" ref={rightSectionRef}>
-              <div className="contact-links">
-                <div className="contact-link">
-                  <img src={fbIcon} alt="FB Messenger" className="contact-icon" />
-                  <span>m.me/HopeInChristCityChurch</span>
-                </div>
-                <div className="contact-link">
-                  <img src={emailIcon} alt="Email" className="contact-icon" />
-                  <span>inquiries@hopeinchristcitychurch.org</span>
-                </div>
-                <div className="contact-link">
-                  <img src={phoneIcon} alt="Phone" className="contact-icon" />
-                  <span>09185468892</span>
-                </div>
-                <div className="contact-link">
-                  <img src={ytIcon} alt="YouTube" className="contact-icon" />
-                  <span>youtube.com/@HopeInChristCityChurch</span>
-                </div>
-              </div>
+      {/* Hero Section */}
+      <section className="contact-hero-section" style={{ 
+        padding: '120px 20px 80px',
+        background: `
+          linear-gradient(rgba(40, 65, 80, 0.75), rgba(30, 55, 70, 0.88)),
+          url(${bgImage})
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+          <RevealOnScroll variant="fade-down">
+            <BoldText size="xlarge" align="center" className="luxury-hero-text">
+              {`Let's Connect
+Get In Touch`}
+            </BoldText>
+          </RevealOnScroll>
+          <RevealOnScroll variant="fade-up" delay={0.2}>
+            <p style={{ 
+              fontSize: '22px', 
+              color: 'rgba(255,255,255,0.95)', 
+              maxWidth: '800px', 
+              margin: '40px auto 0',
+              lineHeight: '1.8',
+              textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+            }}>
+              We'd love to hear from you! Reach out through any of our channels below.
+            </p>
+          </RevealOnScroll>
+        </section>
 
-              <div className="contact-qrcodes">
-                <img src={fbQr} alt="Facebook QR Code" onClick={() => openQR(fbQr)} />
-                <img src={emailQr} alt="Email QR Code" onClick={() => openQR(emailQr)} />
-                <img src={viberQr} alt="Viber QR Code" onClick={() => openQR(viberQr)} />
-                <img src={ytQr} alt="YouTube QR Code" onClick={() => openQR(ytQr)} />
-              </div>
+        <SectionDivider variant="wave" animated={true} />
+
+        {/* Contact Methods Section */}
+        <section className="contact-methods-section" style={{
+          padding: '120px 20px',
+          background: `
+            radial-gradient(ellipse at 10% 20%, rgba(93, 123, 143, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 90% 80%, rgba(192, 217, 221, 0.18) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(127, 166, 181, 0.08) 0%, transparent 55%),
+            linear-gradient(155deg, #fefae0 0%, #f0f8fa 35%, #fefae0 65%, #e8f5f8 100%)
+          `
+        }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+            <RevealOnScroll variant="fade-right">
+              <h2 style={{ 
+                fontSize: 'clamp(32px, 5vw, 48px)', 
+                color: '#5d7b8f',
+                marginBottom: '60px',
+                fontWeight: '900',
+                textAlign: 'center'
+              }}>
+                <GradientText animate={true}>Contact Methods</GradientText>
+              </h2>
+            </RevealOnScroll>
+
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+              gap: '30px',
+              marginBottom: '60px'
+            }}>
+              {contactMethods.map((method, index) => (
+                <RevealOnScroll key={index} variant="fade-up" delay={index * 0.1}>
+                  <AnimatedCard>
+                    <div style={{ textAlign: 'center', padding: '20px' }}>
+                      <img 
+                        src={method.icon} 
+                        alt={method.label} 
+                        style={{ 
+                          width: '60px', 
+                          height: '60px', 
+                          marginBottom: '20px',
+                          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))'
+                        }} 
+                      />
+                      <h3 style={{ 
+                        fontSize: '20px', 
+                        color: '#5d7b8f', 
+                        marginBottom: '15px',
+                        fontWeight: '700'
+                      }}>
+                        {method.label}
+                      </h3>
+                      <p style={{ 
+                        fontSize: '16px', 
+                        color: '#2c3e50', 
+                        marginBottom: '20px',
+                        wordBreak: 'break-word'
+                      }}>
+                        {method.text}
+                      </p>
+                      <img 
+                        src={method.qr} 
+                        alt={`${method.label} QR Code`}
+                        onClick={() => openQR(method.qr)}
+                        style={{ 
+                          width: '120px', 
+                          height: '120px', 
+                          cursor: 'pointer',
+                          borderRadius: '8px',
+                          transition: 'transform 0.3s ease',
+                          border: '2px solid #5d7b8f'
+                        }}
+                        onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                        onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                      />
+                    </div>
+                  </AnimatedCard>
+                </RevealOnScroll>
+              ))}
             </div>
           </div>
+        </section>
 
-          {/* Scroll Indicator */}
-          <div className="scroll-indicator" onClick={scrollToNextSection} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToNextSection()}>
-            <div className="scroll-arrow">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p className="scroll-text">Scroll to see our location</p>
-          </div>
-        </div>
+        <SectionDivider variant="curve" />
 
-        {/* Second Section */}
-        <div
-            ref={secondSectionRef}
-            className="contact-page geometric-pattern"
-            style={{ backgroundImage: `url(${bgImage})` }}
-        >
-          <div className="contact-overlay">
-            {/* Left Column */}
-            <div className="contact-left">
-              <h1 className="contact-main">COME AND</h1>
-              <h3 className="contact-sub">VISIT US</h3>
-              <hr className="contact-line" />
-              <p className="contact-desc">
-                Join us at: <br />
-                Rooms 10 to 12, 2/F Nazirites Christian Academy Bldg.,​ 25 B. Rivera St.,
-                Tinajeros, Malabon City, 1474 Metro Manila
-              </p>
-            </div>
+        {/* Location Section */}
+        <section className="contact-location-section" style={{ 
+          padding: '120px 20px',
+          background: `
+            radial-gradient(ellipse at 15% 25%, rgba(254, 250, 224, 0.18) 0%, transparent 55%),
+            radial-gradient(ellipse at 85% 75%, rgba(192, 217, 221, 0.2) 0%, transparent 50%),
+            linear-gradient(145deg, #3d5a6b 0%, #5d7b8f 28%, #7fa6b5 55%, #9ec0ce 78%, #c0d9dd 100%)
+          `,
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+            <RevealOnScroll variant="fade-down">
+              <BoldText size="large" align="center">
+                {`Visit Us
+In Person`}
+              </BoldText>
+            </RevealOnScroll>
 
-            {/* Right Column */}
-            <div className="contact-right">
-              {/* Responsive Map Wrapper */}
-              <div className="map-responsive">
-                <iframe
+            <RevealOnScroll variant="fade-up" delay={0.2}>
+              <div className="contact-location-card" style={{ 
+                background: 'rgba(254, 250, 224, 0.95)',
+                borderRadius: '24px',
+                padding: '60px 40px',
+                marginTop: '60px',
+                textAlign: 'center'
+              }}>
+                <h3 style={{ 
+                  fontSize: 'clamp(24px, 3vw, 32px)', 
+                  color: '#5d7b8f',
+                  marginBottom: '30px',
+                  fontWeight: '900'
+                }}>
+                  Our Location
+                </h3>
+                <p style={{ 
+                  fontSize: 'clamp(18px, 2.5vw, 22px)', 
+                  color: '#2c3e50',
+                  lineHeight: '1.8',
+                  marginBottom: '40px'
+                }}>
+                  Rooms 10 to 12, 2/F Nazirites Christian Academy Bldg.,<br />
+                  25 B. Rivera St., Tinajeros, Malabon City, 1474 Metro Manila
+                </p>
+
+                {/* Map */}
+                <div className="map-responsive" style={{ 
+                  marginBottom: '30px',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                }}>
+                  <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.73519635711!2d120.96695757510747!3d14.670963485823751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b50076465b0f%3A0xcfb8273c4d8b9bd8!2sHope%20in%20Christ%20City%20Church!5e0!3m2!1sen!2sph!4v1769955911101!5m2!1sen!2sph"
-                    width="600"
+                    width="100%"
                     height="450"
                     style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Hope in Christ City Church Map"
-                ></iframe>
-              </div>
+                  ></iframe>
+                </div>
 
-              {/* Map Actions */}
-              <div className="map-actions">
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Hope+in+Christ+City+Church,+25+B.+Rivera+St,+Tinajeros,+Malabon,+Metro+Manila"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="map-directions-btn"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                {/* Buttons */}
+                <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '30px' }}>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Hope+in+Christ+City+Church,+25+B.+Rivera+St,+Tinajeros,+Malabon,+Metro+Manila"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
                   >
-                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-                  </svg>
-                  Get Directions
-                </a>
-              </div>
+                    <PremiumButton variant="primary" size="large">
+                      🧭 Get Directions
+                    </PremiumButton>
+                  </a>
+                </div>
 
-              {/* QR Code */}
-              <img src={mapQr} alt="Location QR Code" className="contact-small-qr" onClick={() => openQR(mapQr)} />
-            </div>
+                {/* Location QR */}
+                <img 
+                  src={mapQr} 
+                  alt="Location QR Code"
+                  onClick={() => openQR(mapQr)}
+                  style={{ 
+                    width: '150px', 
+                    height: '150px', 
+                    cursor: 'pointer',
+                    borderRadius: '12px',
+                    border: '3px solid #5d7b8f',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+                <p style={{ 
+                  marginTop: '15px', 
+                  fontSize: '14px', 
+                  color: '#5d7b8f',
+                  fontWeight: '600'
+                }}>
+                  Scan for location
+                </p>
+              </div>
+            </RevealOnScroll>
           </div>
-        </div>
+        </section>
       </>
   );
 }

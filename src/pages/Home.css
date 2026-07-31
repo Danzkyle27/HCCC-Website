@@ -1,7 +1,11 @@
 /* Welcome Section */
 .welcome-section {
   padding: clamp(80px, 12vw, 120px) 5%;
-  background: linear-gradient(135deg, #fefae0 0%, #eaf6fc 100%);
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(93, 123, 143, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(192, 217, 221, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(127, 166, 181, 0.1) 0%, transparent 50%),
+    linear-gradient(155deg, #fefae0 0%, #edf6fb 35%, #fefae0 65%, #e4f3f8 100%);
   text-align: center;
   position: relative;
 }
@@ -52,6 +56,10 @@
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+.welcome-cta a {
+  text-decoration: none;
+}
+
 .cta-button {
   display: inline-block;
   padding: 16px 40px;
@@ -97,7 +105,11 @@
 
 .service-times-section {
   padding: clamp(80px, 12vw, 120px) 5%;
-  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(254, 250, 224, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(192, 217, 221, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(127, 166, 181, 0.1) 0%, transparent 55%),
+    linear-gradient(145deg, #3d5a6b 0%, #5d7b8f 25%, #7fa6b5 55%, #9ec0ce 78%, #c0d9dd 100%);
   position: relative;
   overflow: hidden;
 }
@@ -146,7 +158,8 @@
   margin-right: auto;
 }
 
-.service-time-card {
+.service-time-card,
+.animated-card {
   background: rgba(254, 250, 224, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -160,8 +173,9 @@
   perspective: 1000px;
 }
 
-.service-time-card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+.service-time-card:hover,
+.animated-card:hover {
+  transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
 }
@@ -300,7 +314,10 @@
 }
 
 .dark-mode .welcome-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(93, 123, 143, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(50, 80, 95, 0.12) 0%, transparent 55%),
+    linear-gradient(155deg, #111 0%, #1a1a1a 40%, #141e24 100%);
 }
 
 .dark-mode .welcome-title {
@@ -326,7 +343,10 @@
 }
 
 .dark-mode .service-times-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(60, 90, 110, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(30, 50, 65, 0.18) 0%, transparent 50%),
+    linear-gradient(145deg, #111 0%, #1a1a1a 30%, #1e2a32 60%, #141e24 100%);
 }
 
 .dark-mode .service-time-card {
@@ -359,4 +379,23 @@
 .dark-mode .service-location {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================= */
+/*    MINISTRIES SECTION         */
+/* ============================= */
+
+.home-ministries-section {
+  background:
+    radial-gradient(ellipse at 90% 5%,  rgba(93, 123, 143, 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 5%  95%, rgba(192, 217, 221, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 55% 50%, rgba(127, 166, 181, 0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #fefae0 0%, #f0f8fa 30%, #fefae0 60%, #e6f3f8 100%);
+}
+
+.dark-mode .home-ministries-section {
+  background:
+    radial-gradient(ellipse at 90% 5%,  rgba(93, 123, 143, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 5%  95%, rgba(50, 80, 95,  0.1)  0%, transparent 50%),
+    linear-gradient(160deg, #111 0%, #1a1a1a 40%, #151f26 100%);
 }

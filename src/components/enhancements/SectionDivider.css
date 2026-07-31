@@ -1,0 +1,79 @@
+.section-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+}
+
+.section-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+.section-divider.large svg {
+  height: 100px;
+}
+
+.section-divider.small svg {
+  height: 40px;
+}
+
+/* Wave variants */
+.divider-fill {
+  fill: #fefae0;
+}
+
+.dark-mode .divider-fill {
+  fill: #1a1a1a;
+}
+
+.divider-fill.light {
+  fill: #eaf6fc;
+}
+
+.dark-mode .divider-fill.light {
+  fill: #2a2a2a;
+}
+
+/* Animated wave */
+.section-divider.animated svg path {
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    d: path("M0,50 Q250,30 500,50 T1000,50 T1500,50 V100 H0 Z");
+  }
+  50% {
+    d: path("M0,50 Q250,70 500,50 T1000,50 T1500,50 V100 H0 Z");
+  }
+  100% {
+    d: path("M0,50 Q250,30 500,50 T1000,50 T1500,50 V100 H0 Z");
+  }
+}
+
+/* Position variants */
+.section-divider.top {
+  transform: rotate(180deg);
+}
+
+.section-divider.bottom {
+  margin-bottom: -1px;
+}
+
+/* Gradient divider */
+.section-divider.gradient svg {
+  fill: url(#divider-gradient);
+}
+
+@media (max-width: 768px) {
+  .section-divider svg {
+    height: 40px;
+  }
+  
+  .section-divider.large svg {
+    height: 60px;
+  }
+}

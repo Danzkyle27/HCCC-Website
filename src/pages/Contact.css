@@ -814,3 +814,63 @@
 .dark-mode .scroll-indicator:hover .scroll-text {
   color: #c0d9dd;
 }
+
+/* ============================= */
+/*  DARK MODE — NEW PAGE SECTIONS */
+/* ============================= */
+
+/* Hero */
+.dark-mode .contact-hero-section {
+  background: linear-gradient(rgba(20, 20, 20, 0.92), rgba(20, 20, 20, 0.92)),
+              var(--contact-bg-url) center / cover no-repeat !important;
+}
+
+/* Contact Methods section */
+.dark-mode .contact-methods-section {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .contact-methods-section h2 {
+  color: #c0d9dd !important;
+}
+
+/* AnimatedCard inner content */
+.dark-mode .contact-methods-section .animated-card,
+.dark-mode .contact-methods-section .animated-card-inner {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .contact-methods-section h3 {
+  color: #7fa6b5 !important;
+}
+
+.dark-mode .contact-methods-section p {
+  color: #e0e0e0 !important;
+}
+
+/* Location section */
+.dark-mode .contact-location-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
+}
+
+.dark-mode .contact-location-card {
+  background: rgba(30, 30, 30, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .contact-location-card h3 {
+  color: #7fa6b5 !important;
+}
+
+.dark-mode .contact-location-card p {
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .contact-location-card .map-responsive {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .contact-location-card > p:last-child {
+  color: #7fa6b5 !important;
+}

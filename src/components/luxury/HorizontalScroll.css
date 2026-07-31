@@ -1,0 +1,15 @@
+.horizontal-scroll-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.horizontal-scroll-content {
+  display: flex;
+  gap: 40px;
+  will-change: transform;
+}
+
+.horizontal-scroll-content > * {
+  flex-shrink: 0;
+}

@@ -1,0 +1,63 @@
+.bold-text {
+  font-family: "Roca One", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.bold-text.xlarge {
+  font-size: clamp(48px, 8vw, 120px);
+}
+
+.bold-text.large {
+  font-size: clamp(36px, 6vw, 80px);
+}
+
+.bold-text.medium {
+  font-size: clamp(28px, 4vw, 60px);
+}
+
+.bold-text.left {
+  text-align: left;
+}
+
+.bold-text.center {
+  text-align: center;
+}
+
+.bold-text.right {
+  text-align: right;
+}
+
+.bold-text-line-wrapper {
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.bold-text-line {
+  display: block;
+  perspective: 1000px;
+}
+
+/* Gradient text variant */
+.bold-text.gradient .bold-text-line {
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5, #c0d9dd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark mode */
+.dark-mode .bold-text {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .bold-text.xlarge {
+    font-size: clamp(32px, 10vw, 60px);
+  }
+  
+  .bold-text.large {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+}

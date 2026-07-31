@@ -1,0 +1,153 @@
+/* Skeleton Loading */
+.skeleton-card {
+  background: rgba(254, 250, 224, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 123, 143, 0.1) 25%,
+    rgba(127, 166, 181, 0.2) 50%,
+    rgba(93, 123, 143, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2s infinite;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-line {
+  height: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 123, 143, 0.1) 25%,
+    rgba(127, 166, 181, 0.2) 50%,
+    rgba(93, 123, 143, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+}
+
+.skeleton-text {
+  width: 100%;
+}
+
+.skeleton-text.short {
+  width: 40%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(93, 123, 143, 0.1);
+  border-top-color: #5d7b8f;
+  border-radius: 50%;
+}
+
+.loading-spinner.small .spinner {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.loading-spinner.large .spinner {
+  width: 60px;
+  height: 60px;
+  border-width: 5px;
+}
+
+/* Loading Dots */
+.loading-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #5d7b8f;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(93, 123, 143, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5d7b8f, #7fa6b5);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Dark mode */
+.dark-mode .skeleton-card {
+  background: rgba(30, 30, 30, 0.5);
+}
+
+.dark-mode .skeleton-image,
+.dark-mode .skeleton-line {
+  background: linear-gradient(
+    90deg,
+    rgba(127, 166, 181, 0.1) 25%,
+    rgba(192, 217, 221, 0.2) 50%,
+    rgba(127, 166, 181, 0.1) 75%
+  );
+  background-size: 200% 100%;
+}
+
+.dark-mode .spinner {
+  border-color: rgba(127, 166, 181, 0.2);
+  border-top-color: #7fa6b5;
+}
+
+.dark-mode .loading-dots .dot {
+  background: #7fa6b5;
+}
+
+.dark-mode .progress-bar {
+  background: rgba(127, 166, 181, 0.2);
+}

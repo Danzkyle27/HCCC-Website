@@ -1,0 +1,32 @@
+.curtain-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #5d7b8f, #7fa6b5);
+  z-index: 9998;
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.curtain-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.curtain-text {
+  font-family: "Roca One", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.dark-mode .curtain-transition {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+}

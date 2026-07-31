@@ -252,3 +252,55 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================= */
+/*  DARK MODE — NEW PAGE SECTIONS */
+/* ============================= */
+
+/* Ministry card dark mode */
+.dark-mode .ministry-card {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .ministry-card:hover {
+  background: rgba(40, 40, 40, 0.98) !important;
+  border-color: var(--ministry-color) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark-mode .ministry-name {
+  color: #f0f0f0 !important;
+}
+
+.dark-mode .ministry-description {
+  color: #b0b0b0 !important;
+}
+
+/* Hero section */
+.dark-mode .ministries-hero-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
+}
+
+.dark-mode .ministries-hero-section p {
+  color: rgba(224, 224, 224, 0.95) !important;
+}
+
+/* Grid section */
+.dark-mode .ministries-grid-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #222 100%) !important;
+}
+
+.dark-mode .ministries-grid-section h2 {
+  color: #c0d9dd !important;
+}
+
+/* CTA section */
+.dark-mode .ministries-cta-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
+}
+
+.dark-mode .ministries-cta-section p {
+  color: rgba(224, 224, 224, 0.95) !important;
+}

@@ -1,0 +1,139 @@
+/* Enhanced button interactions */
+.micro-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.micro-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.micro-button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* Link hover underline */
+.micro-link {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.micro-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #5d7b8f, #7fa6b5);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.micro-link:hover::after {
+  width: 100%;
+}
+
+/* Icon bounce on hover */
+.micro-icon {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.micro-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* Card lift on hover */
+.micro-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.micro-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Input focus glow */
+.micro-input {
+  transition: all 0.3s ease;
+}
+
+.micro-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(93, 123, 143, 0.2);
+  border-color: #5d7b8f;
+}
+
+/* Pulse animation */
+@keyframes micro-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.micro-pulse {
+  animation: micro-pulse 2s ease-in-out infinite;
+}
+
+/* Shake animation */
+@keyframes micro-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.micro-shake {
+  animation: micro-shake 0.5s ease-in-out;
+}
+
+/* Success checkmark */
+.micro-success {
+  display: inline-block;
+  animation: micro-success-scale 0.5s ease-out;
+}
+
+@keyframes micro-success-scale {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Smooth color transition */
+.micro-color-transition {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Scale on press */
+.micro-press {
+  transition: transform 0.1s ease;
+}
+
+.micro-press:active {
+  transform: scale(0.95);
+}

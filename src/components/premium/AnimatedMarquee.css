@@ -1,0 +1,15 @@
+.animated-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.animated-marquee {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.animated-marquee > * {
+  flex-shrink: 0;
+}

@@ -1,0 +1,53 @@
+.pinned-section-wrapper {
+  position: relative;
+  height: 300vh;
+}
+
+.pinned-section-spacer {
+  height: 100vh;
+}
+
+.pinned-section-content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pinned-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.pinned-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+
+.pinned-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  padding: 0 60px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .pinned-inner {
+    padding: 0 20px;
+  }
+}

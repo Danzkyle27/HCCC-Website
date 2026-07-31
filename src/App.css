@@ -91,28 +91,29 @@
 /* ============================= */
 
 html,
-body,
+body {
+  font-family: "Roca One", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 #root {
   font-family: "Roca One", system-ui, -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Headings (recommended for church branding) */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roca Two", "Roca One", sans-serif;
   font-weight: 700;
-}
-
-/* ============================= */
-/*        ROOT CONTAINER         */
-/* ============================= */
-
-#root {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 /* ============================= */

@@ -1,0 +1,139 @@
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+  max-width: 400px;
+  pointer-events: all;
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.toast.success {
+  border-left-color: #22c55e;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.toast.error {
+  border-left-color: #ef4444;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.toast.info {
+  border-left-color: #5d7b8f;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.toast.warning {
+  border-left-color: #f59e0b;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.toast-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #2c3e50;
+}
+
+.toast-message {
+  font-size: 13px;
+  color: #5d7b8f;
+  line-height: 1.4;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5d7b8f;
+  transition: color 0.2s;
+}
+
+.toast-close:hover {
+  color: #2c3e50;
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  animation: toast-progress linear forwards;
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Dark mode */
+.dark-mode .toast {
+  background: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .toast-title {
+  color: #ffffff;
+}
+
+.dark-mode .toast-message {
+  color: #c0d9dd;
+}
+
+.dark-mode .toast-close {
+  color: #c0d9dd;
+}
+
+.dark-mode .toast-close:hover {
+  color: #ffffff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .toast-container {
+    left: 20px;
+    right: 20px;
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
