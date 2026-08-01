@@ -537,28 +537,29 @@ h2, h3 {
 }
 
 .programs-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(15px, 2vw, 30px);
-  flex-wrap: wrap;
   position: relative;
   z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
 }
 
-/* Staggered fade-in animation for cards */
-.program-card:nth-child(1) {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+@media (max-width: 900px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.program-card:nth-child(2) {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+@media (max-width: 600px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.program-card:nth-child(3) {
-  animation: fadeInUp 0.8s ease-out 0.6s both;
-}
+/* Staggered animations handled by RevealOnScroll */
 
 @keyframes fadeInUp {
   from {
@@ -576,39 +577,42 @@ h2, h3 {
 /* ============================= */
 
 .program-card {
-  width: min(90%, 380px);
+  width: 100%;
   text-decoration: none;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(0.98);
   transform-origin: center;
-  background: rgba(254, 250, 224, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   overflow: hidden;
   position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  display: block;
 }
 
-.program-card::before {
+/* Bottom scrim — smooth gradient so title/button are legible without a hard box */
+.program-card::after {
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(93, 123, 143, 0.1), rgba(192, 217, 221, 0.1));
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1;
+  height: 55%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
+    transparent 100%
+  );
   pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.4s ease;
 }
 
-.program-card:hover::before {
-  opacity: 1;
+.program-card:hover::after {
+  opacity: 0.85;
 }
 
 .program-card:hover {
@@ -619,10 +623,22 @@ h2, h3 {
 
 .program-card img {
   width: 100%;
-  height: clamp(150px, 28vw, 280px);
+  height: 320px;
   object-fit: cover;
-  border-radius: var(--radius-lg);
+  display: block;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 900px) {
+  .program-card img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .program-card img {
+    height: 220px;
+  }
 }
 
 .program-card:hover img {
@@ -630,15 +646,30 @@ h2, h3 {
 }
 
 .program-card h2 {
-  font-size: clamp(20px, 4vw, 40px);
+  font-size: clamp(20px, 4vw, 32px);
   font-weight: 700;
-  margin-top: 25px;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
   color: #ffffff;
   text-align: center;
   position: relative;
   z-index: 2;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Content overlay floats above the gradient scrim */
+.program-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .program-card:hover h2 {

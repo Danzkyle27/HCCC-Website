@@ -1,11 +1,7 @@
 /* Welcome Section */
 .welcome-section {
   padding: clamp(80px, 12vw, 120px) 5%;
-  background:
-    radial-gradient(ellipse at 15% 30%, rgba(93, 123, 143, 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 70%, rgba(192, 217, 221, 0.2) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 100%, rgba(127, 166, 181, 0.1) 0%, transparent 50%),
-    linear-gradient(155deg, #fefae0 0%, #edf6fb 35%, #fefae0 65%, #e4f3f8 100%);
+  background: linear-gradient(135deg, #fefae0 0%, #eaf6fc 100%);
   text-align: center;
   position: relative;
 }
@@ -105,11 +101,7 @@
 
 .service-times-section {
   padding: clamp(80px, 12vw, 120px) 5%;
-  background:
-    radial-gradient(ellipse at 10% 20%, rgba(254, 250, 224, 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(192, 217, 221, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(127, 166, 181, 0.1) 0%, transparent 55%),
-    linear-gradient(145deg, #3d5a6b 0%, #5d7b8f 25%, #7fa6b5 55%, #9ec0ce 78%, #c0d9dd 100%);
+  background: linear-gradient(135deg, #5d7b8f 0%, #7fa6b5 50%, #c0d9dd 100%);
   position: relative;
   overflow: hidden;
 }
@@ -314,10 +306,7 @@
 }
 
 .dark-mode .welcome-section {
-  background:
-    radial-gradient(ellipse at 15% 30%, rgba(93, 123, 143, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 70%, rgba(50, 80, 95, 0.12) 0%, transparent 55%),
-    linear-gradient(155deg, #111 0%, #1a1a1a 40%, #141e24 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
 .dark-mode .welcome-title {
@@ -343,10 +332,7 @@
 }
 
 .dark-mode .service-times-section {
-  background:
-    radial-gradient(ellipse at 10% 20%, rgba(60, 90, 110, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(30, 50, 65, 0.18) 0%, transparent 50%),
-    linear-gradient(145deg, #111 0%, #1a1a1a 30%, #1e2a32 60%, #141e24 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
 }
 
 .dark-mode .service-time-card {
@@ -398,4 +384,18 @@
     radial-gradient(ellipse at 90% 5%,  rgba(93, 123, 143, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 5%  95%, rgba(50, 80, 95,  0.1)  0%, transparent 50%),
     linear-gradient(160deg, #111 0%, #1a1a1a 40%, #151f26 100%);
+}
+
+/* ============================= */
+/*   SERVICE CARD HEADING COLOR  */
+/* ============================= */
+
+.service-time-card h3,
+.animated-card h3 {
+  color: #2c3e50;
+}
+
+.dark-mode .service-time-card h3,
+.dark-mode .animated-card h3 {
+  color: #7fa6b5;
 }

@@ -63,8 +63,8 @@ Your Faith`}
           <RevealOnScroll variant="fade-up" delay={0}>
             <Link to="/programs/sunday-service" className="program-card enhanced-image-hover">
               <img src={sundayService} alt="Sunday Service" loading="lazy" />
-              <h2>SUNDAY SERVICE</h2>
-              <div style={{ marginTop: '20px' }}>
+              <div className="program-card-body">
+                <h2>SUNDAY SERVICE</h2>
                 <PremiumButton variant="glass" size="medium">
                   Learn More →
                 </PremiumButton>
@@ -75,8 +75,8 @@ Your Faith`}
           <RevealOnScroll variant="fade-up" delay={0.2}>
             <Link to="/programs/discipleship" className="program-card enhanced-image-hover">
               <img src={discipleship} alt="Discipleship" loading="lazy" />
-              <h2>DISCIPLESHIP</h2>
-              <div style={{ marginTop: '20px' }}>
+              <div className="program-card-body">
+                <h2>DISCIPLESHIP</h2>
                 <PremiumButton variant="glass" size="medium">
                   Learn More →
                 </PremiumButton>
@@ -87,8 +87,8 @@ Your Faith`}
           <RevealOnScroll variant="fade-up" delay={0.4}>
             <Link to="/programs/bible-study" className="program-card enhanced-image-hover">
               <img src={bibleStudy} alt="Bible Study" loading="lazy" />
-              <h2>BIBLE STUDY</h2>
-              <div style={{ marginTop: '20px' }}>
+              <div className="program-card-body">
+                <h2>BIBLE STUDY</h2>
                 <PremiumButton variant="glass" size="medium">
                   Learn More →
                 </PremiumButton>

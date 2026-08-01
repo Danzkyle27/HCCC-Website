@@ -31,7 +31,9 @@
 
 .bold-text-line-wrapper {
   overflow: hidden;
-  padding: 4px 0;
+  /* enough vertical room so descenders (g, p, y) and ascenders (h, f, l) 
+     are never clipped — scales with font size */
+  padding: 0.08em 0 0.15em;
 }
 
 .bold-text-line {

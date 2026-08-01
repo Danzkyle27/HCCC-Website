@@ -1,488 +1,383 @@
+/* ======================================================= */
+/*   FOUNDATION PAGES — Single-section layout             */
+/* ======================================================= */
+
+/* ── OUTER WRAPPER ── */
+
 .foundation-page {
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
-  padding: 80px 20px 60px 20px;
-  background: url("../../assets/cross.png") no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
   position: relative;
+  min-height: 100vh;
+  background: url("../../assets/cross.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 40px 80px;
   overflow: hidden;
 }
 
-/* Animated subtle overlay */
-.foundation-page::before {
-  content: "";
+/* Dark teal gradient overlay over the cross image */
+.foundation-page-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-  animation: pulseOverlay 8s ease-in-out infinite;
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(93, 123, 143, 0.78) 0%,
+    rgba(63, 95, 115, 0.84) 40%,
+    rgba(30, 55, 75,  0.90) 100%
+  );
+  z-index: 0;
 }
 
-@keyframes pulseOverlay {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
+/* ── INNER CONTENT COLUMN ── */
 
-.foundation-overlay {
-  max-width: 1200px;
+.foundation-page-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  padding: 30px 20px;
+  max-width: 860px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.foundation-content {
-  width: 100%;
-  max-width: 1200px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  animation: fadeInUp 1s ease-out 0.5s both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.foundation-content:hover {
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transform: translateY(-2px);
-}
-
-.foundation-title {
-  font-size: 64px;
-  font-weight: 900;
-  font-family: "Roca One", sans-serif;
+  gap: 48px;
   text-align: center;
-  margin-bottom: 10px;
-  position: relative;
+}
+
+/* Wide variant for Statement of Faith and Core Values */
+.foundation-page-inner--wide {
+  max-width: 1300px;
+}
+
+/* ── EYEBROW ── */
+
+.foundation-eyebrow {
+  font-family: "Roca One", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.70);
+  margin-bottom: 14px;
+}
+
+/* ── TITLE ──
+   GradientText uses -webkit-text-fill-color: transparent which makes
+   the gradient text invisible against the dark overlay.
+   Override it directly so title renders as bright white with a subtle glow.
+*/
+
+.foundation-title,
+.foundation-title .gradient-text,
+.foundation-title [class*="gradient"] {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: clamp(42px, 7vw, 82px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
   display: inline-block;
-  transition: all 0.3s ease;
-  animation: fadeInDown 0.8s ease-out;
+  /* Override GradientText transparent fill — use bright white instead */
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: 0 0 40px rgba(192, 217, 221, 0.6), 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.foundation-title--wide {
+  font-size: clamp(28px, 5vw, 58px);
 }
 
-.foundation-title:hover {
-  transform: scale(1.02);
-  text-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+/* ── DIVIDER ── */
 
 .foundation-divider {
   border: none;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #000, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.85), transparent);
   width: 180px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
   border-radius: 2px;
   animation: expandLine 1s ease-out 0.3s both;
 }
 
 @keyframes expandLine {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 180px;
-    opacity: 1;
-  }
+  from { width: 0; opacity: 0; }
+  to   { width: 180px; opacity: 1; }
 }
+
+/* ── LIST (Mission & Vision) ── */
 
 .foundation-list {
   list-style: none;
-  font-size: 28px;
-  font-family: "Roca One", sans-serif;
-  line-height: 2;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   text-align: left;
-  display: inline-block;
-  padding-left: 0;
 }
 
 .foundation-list li {
-  margin-bottom: 15px;
-  padding-left: 40px;
-  position: relative;
-  transition: all 0.3s ease;
-  animation: fadeInLeft 0.6s ease-out both;
-}
-
-.foundation-list li:nth-child(1) {
-  animation-delay: 0.7s;
-}
-
-.foundation-list li:nth-child(2) {
-  animation-delay: 0.85s;
-}
-
-.foundation-list li:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.foundation-list li:nth-child(4) {
-  animation-delay: 1.15s;
-}
-
-.foundation-list li:nth-child(5) {
-  animation-delay: 1.3s;
-}
-
-.foundation-list li:nth-child(6) {
-  animation-delay: 1.45s;
-}
-
-.foundation-list li:nth-child(7) {
-  animation-delay: 1.6s;
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.foundation-list li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: #5d7b8f;
-  font-weight: 900;
-  font-size: 32px;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .foundation-list li:hover {
-  transform: translateX(8px);
+  transform: translateY(-5px) translateX(6px);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  border-left-color: #ffffff;
 }
 
-.foundation-list li:hover::before {
-  color: #7fa6b5;
-  transform: scale(1.2);
+.foundation-list-text {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.75;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .foundation-ref {
-  font-weight: normal;
   font-family: "Roca One", sans-serif;
+  font-size: clamp(12px, 1.4vw, 14px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
 }
+
+/* ── CORE VALUES GRID ──
+   7 cards: use flex so the last row of 2 stays centered.
+*/
+
+.foundation-values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.foundation-value-card {
+  flex: 0 0 calc(33.333% - 14px);
+  min-width: 200px;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.foundation-value-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.foundation-value-icon {
+  font-size: 42px;
+  animation: floatIcon 3s ease-in-out infinite;
+  display: block;
+}
+
+.foundation-value-card:nth-child(2) .foundation-value-icon { animation-delay: 0.3s; }
+.foundation-value-card:nth-child(3) .foundation-value-icon { animation-delay: 0.6s; }
+.foundation-value-card:nth-child(4) .foundation-value-icon { animation-delay: 0.9s; }
+.foundation-value-card:nth-child(5) .foundation-value-icon { animation-delay: 1.2s; }
+.foundation-value-card:nth-child(6) .foundation-value-icon { animation-delay: 1.5s; }
+.foundation-value-card:nth-child(7) .foundation-value-icon { animation-delay: 1.8s; }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.foundation-value-text {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── STATEMENT OF FAITH GRID ──
+   CSS columns = masonry layout. Cards flow top-to-bottom in each
+   column and only take the height they need — no empty spaces ever.
+*/
 
 .foundation-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 80px;
+  columns: 3;
+  column-gap: 20px;
+  width: 100%;
   text-align: left;
 }
 
-.foundation-grid > div {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
-
-.foundation-grid > div:hover {
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transform: translateY(-2px);
-}
-
-.foundation-grid h2 {
-  font-size: 30px;
-  font-weight: 800;
-  font-family: "Roca One", sans-serif;
+.foundation-grid-card {
+  break-inside: avoid;
+  display: block;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
-  text-transform: uppercase;
-  text-align: left;
-  position: relative;
-  padding-bottom: 12px;
 }
 
-.foundation-grid h2::after {
+.foundation-grid-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .foundation-grid { columns: 2; }
+}
+
+@media (max-width: 600px) {
+  .foundation-grid { columns: 1; }
+}
+
+.foundation-grid-card {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.foundation-grid-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.foundation-grid-card h2 {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.foundation-grid-card h2::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 60px;
+  width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #000, rgba(0, 0, 0, 0.3));
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
   border-radius: 2px;
+  transition: width 0.4s ease;
 }
 
-.foundation-grid p {
-  font-size: 22px;
+.foundation-grid-card:hover h2::after {
+  width: 90px;
+}
+
+.foundation-grid-card p {
   font-family: "Roca One", sans-serif;
-  line-height: 1.9;
-  text-align: justify;
-  margin-bottom: 15px;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 12px;
 }
 
-.foundation-grid p:last-child {
+.foundation-grid-card p:last-child {
   margin-bottom: 0;
 }
 
-/* ========================= */
-/*    RESPONSIVE DESIGN      */
-/* ========================= */
+/* ── RESPONSIVE ── */
 
-/* Medium devices (Tablets / Small laptops) */
-@media (max-width: 1024px) {
-  .foundation-title {
-    font-size: 52px;
-    font-family: "Roca One", sans-serif;
-  }
-
-  .foundation-content {
-    padding: 35px;
-  }
-
-  .foundation-grid {
-    gap: 60px;
-  }
-
-  .foundation-grid > div {
-    padding: 25px;
-  }
-
-  .foundation-list {
-    font-size: 24px;
-    font-family: "Roca One", sans-serif;
-    line-height: 1.8;
-  }
-
-  .foundation-grid h2 {
-    font-size: 26px;
-  }
-
-  .foundation-grid p {
-    font-size: 20px;
-  }
-}
-
-/* Small devices (Tablets portrait / Large phones) */
 @media (max-width: 768px) {
   .foundation-page {
-    padding: 40px 15px;
-    background-attachment: scroll; 
+    padding: 80px 20px 60px;
+    background-attachment: scroll;
   }
 
-  .foundation-overlay {
-    padding: 20px 10px;
-  }
-
-  .foundation-content {
-    padding: 30px 20px;
-  }
-
-  .foundation-title {
-    font-size: 44px;
-    font-family: "Roca One", sans-serif;
-  }
-
-  .foundation-divider {
-    width: 120px;
+  .foundation-values-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .foundation-grid {
-    grid-template-columns: 1fr; 
-    gap: 50px;
+    grid-template-columns: 1fr;
   }
 
-  .foundation-grid > div {
-    padding: 20px;
-  }
-
-  .foundation-list {
-    font-size: 22px;
-    font-family: "Roca One", sans-serif;
-    padding-left: 20px;
-  }
-
-  .foundation-grid h2 {
-    font-size: 24px;
-    font-family: "Roca One", sans-serif;
-  }
-
-  .foundation-grid p {
-    font-size: 19px;
-    font-family: "Roca One", sans-serif;
-    line-height: 1.8;
+  .foundation-list li {
+    padding: 22px 20px;
   }
 }
 
-/* Extra small devices (phones) */
 @media (max-width: 480px) {
-  .foundation-page {
-    padding: 30px 10px;
+  .foundation-values-grid {
+    grid-template-columns: 1fr;
   }
 
-  .foundation-content {
-    padding: 25px 15px;
-  }
-
-  .foundation-title {
-    font-size: 36px;
-    font-family: "Roca One", sans-serif;
-  }
-
-  .foundation-divider {
-    width: 100px;
-    margin-bottom: 30px;
-  }
-
-  .foundation-list {
-    font-size: 20px;
-    font-family: "Roca One", sans-serif;
-    line-height: 1.7;
-    padding-left: 18px;
-  }
-
-  .foundation-grid > div {
-    padding: 18px;
-  }
-
-  .foundation-grid h2 {
-    font-size: 22px;
-    font-family: "Roca One", sans-serif;
-  }
-
-  .foundation-grid p {
-    font-size: 18px;
-    font-family: "Roca One", sans-serif;
-    line-height: 1.7;
+  .foundation-list-text {
+    font-size: 16px;
   }
 }
 
-/* ============================= */
-/*        DARK MODE              */
-/* ============================= */
+/* ── DARK MODE ── */
 
-.dark-mode .foundation-page {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  position: relative;
+/* Deepen the overlay so text stays readable */
+.dark-mode .foundation-page-overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(10, 20, 30, 0.88) 0%,
+    rgba(5,  15, 25, 0.93) 50%,
+    rgba(0,  10, 20, 0.96) 100%
+  );
 }
 
-.dark-mode .foundation-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
-  pointer-events: none;
+/* Cards stay glassy but darker */
+.dark-mode .foundation-list li,
+.dark-mode .foundation-value-card,
+.dark-mode .foundation-grid-card {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.10);
 }
 
-.dark-mode .foundation-overlay {
-  position: relative;
-  z-index: 1;
+.dark-mode .foundation-list li:hover,
+.dark-mode .foundation-value-card:hover,
+.dark-mode .foundation-grid-card:hover {
+  background: rgba(0, 0, 0, 0.50);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
-.dark-mode .foundation-content {
-  background: rgba(30, 30, 30, 0.7);
-  color: #f5f5f5;
-  border-color: rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 1;
-}
-
-.dark-mode .foundation-content:hover {
-  background: rgba(40, 40, 40, 0.8);
-}
-
-.dark-mode .foundation-title {
-  color: #f5f5f5;
-  position: relative;
-  z-index: 1;
-}
-
-.dark-mode .foundation-divider {
-  background: linear-gradient(90deg, transparent, #f5f5f5, transparent);
-  position: relative;
-  z-index: 1;
-}
-
-.dark-mode .foundation-list li {
-  color: #e0e0e0;
-}
-
-.dark-mode .foundation-list li::before {
-  color: #7fa6b5;
-}
-
-.dark-mode .foundation-list li:hover::before {
-  color: #c0d9dd;
-}
-
-.dark-mode .foundation-grid > div {
-  background: rgba(30, 30, 30, 0.7);
-  color: #f5f5f5;
-  border-color: rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 1;
-}
-
-.dark-mode .foundation-grid > div:hover {
-  background: rgba(40, 40, 40, 0.8);
-}
-
-.dark-mode .foundation-grid h2 {
-  color: #f5f5f5;
-}
-
-.dark-mode .foundation-grid h2::after {
-  background: linear-gradient(90deg, #f5f5f5, rgba(245, 245, 245, 0.3));
-}
-
-.dark-mode .foundation-grid p {
-  color: #e0e0e0;
-}
-
+/* All text is already white — just ensure refs stay legible */
 .dark-mode .foundation-ref {
-  color: #c0d9dd;
+  color: rgba(192, 217, 221, 0.80);
 }

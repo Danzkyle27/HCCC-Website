@@ -1,6 +1,7 @@
 import "./Contact.css";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { scrollToTop } from "../components/SmoothScroll";
 import fbIcon from "../assets/fbicon.png";
 import emailIcon from "../assets/emailicon.png";
 import phoneIcon from "../assets/phoneicon.png";
@@ -21,9 +22,13 @@ function Contact() {
   const [enlargedQR, setEnlargedQR] = useState(null);
 
   const openQR = (qrImage) => {
-    setEnlargedQR(qrImage);
-    const scrollProgress = document.querySelector('.scroll-progress-container');
-    if (scrollProgress) scrollProgress.style.display = 'none';
+    // Scroll to top first, then open modal after Lenis finishes snapping
+    scrollToTop();
+    setTimeout(() => {
+      setEnlargedQR(qrImage);
+      const scrollProgress = document.querySelector('.scroll-progress-container');
+      if (scrollProgress) scrollProgress.style.display = 'none';
+    }, 80);
   };
 
   const closeQR = () => {

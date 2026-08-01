@@ -13,7 +13,7 @@ import Breadcrumb from "./components/Breadcrumb";
 import StickyCTA from "./components/StickyCTA";
 import PageLoader from "./components/PageLoader";
 import ParticleBackground from "./components/ParticleBackground";
-import SmoothScroll from "./components/SmoothScroll";
+import SmoothScroll, { scrollToTop } from "./components/SmoothScroll";
 import AnimatedBackground from "./components/AnimatedBackground";
 import PageTransition from "./components/PageTransition";
 import PerformanceMonitor from "./components/PerformanceMonitor";
@@ -40,12 +40,14 @@ import Vision from "./pages/foundation/Vision";
 import CoreValues from "./pages/foundation/CoreValues";
 import StatementOfFaith from "./pages/foundation/StatementOfFaith";
 
-// Scroll to top component
+// Scroll to top on every route change — works with Lenis smooth scroll
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // immediate: true skips the smooth animation so the page snaps to top
+    // instantly rather than scrolling there, which is the correct UX on navigation
+    scrollToTop();
   }, [pathname]);
 
   return null;
