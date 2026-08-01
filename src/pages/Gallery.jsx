@@ -46,6 +46,7 @@ const anniversaries = [
     caption: "A Year of Hope",
     sub: "August 11, 2024 — Celebrating one year of faith, growth, and community.",
     featured: false,
+    ratio: "16 / 9",
   },
   {
     src: anniv2,
@@ -53,6 +54,7 @@ const anniversaries = [
     caption: "Two Years of Grace",
     sub: "August 3, 2025 — Two years of God's faithfulness and abundant blessings.",
     featured: false,
+    ratio: "2 / 1",
   },
   {
     src: anniv3,
@@ -60,6 +62,7 @@ const anniversaries = [
     caption: "Three Years Strong",
     sub: "August 9, 2026 — Join us as we celebrate three years of Hope in Christ City Church. Our biggest milestone yet.",
     featured: true,
+    ratio: "2 / 1",
   },
 ];
 
@@ -132,7 +135,7 @@ function Gallery() {
               {anniv.featured && (
                 <div className="gallery-anniv-badge">⭐ UPCOMING EVENT</div>
               )}
-              <div className="gallery-anniv-img-wrap">
+              <div className="gallery-anniv-img-wrap" style={{ aspectRatio: anniv.ratio }}>
                 <img src={anniv.src} alt={anniv.year} loading="lazy" />
               </div>
               <div className="gallery-anniv-caption">

@@ -335,9 +335,37 @@
   letter-spacing: 0.5px;
 }
 
-/* ── DARK MODE ── */
+/* ── ANNIVERSARY SECTION — dark text on light background ── */
+
+.gallery-section-light .phs-label {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.gallery-section-light .phs-title {
+  color: #2c3e50;
+  text-shadow: none;
+}
+
+.gallery-section-light .phs-hint {
+  color: rgba(0, 0, 0, 0.35);
+}
 
 .dark-mode .gallery-section-light {
+  background: linear-gradient(145deg, #111 0%, #1a1a1a 50%, #141e24 100%);
+}
+
+.dark-mode .gallery-section-light .phs-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.dark-mode .gallery-section-light .phs-title {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .gallery-section-light .phs-hint {
+  color: rgba(255, 255, 255, 0.45);
+}
   background: linear-gradient(145deg, #111 0%, #1a1a1a 50%, #141e24 100%);
 }
 
