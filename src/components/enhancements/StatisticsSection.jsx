@@ -32,7 +32,7 @@ function StatCard({ icon, number, suffix = '', label, description, delay = 0 }) 
           <AnimatedCounter 
             from={0} 
             to={number} 
-            duration={2}
+            duration={0.8}
             suffix={suffix}
           />
         )}

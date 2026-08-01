@@ -14,9 +14,9 @@ function AnimatedCounter({
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   
   const motionValue = useSpring(from, { 
-    stiffness: 50, 
-    damping: 20,
-    duration: duration * 1000
+    stiffness: 280,
+    damping: 40,
+    restDelta: 0.5
   });
   
   const display = useTransform(motionValue, (latest) => 
