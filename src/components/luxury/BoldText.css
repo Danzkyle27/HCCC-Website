@@ -39,6 +39,16 @@
 .bold-text-line {
   display: block;
   perspective: 1000px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              text-shadow 0.35s ease,
+              letter-spacing 0.35s ease;
+  cursor: default;
+}
+
+.bold-text-line-wrapper:hover .bold-text-line {
+  transform: translateY(-6px);
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.01em;
 }
 
 /* Gradient text variant */

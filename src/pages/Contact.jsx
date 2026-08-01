@@ -2,10 +2,6 @@ import "./Contact.css";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { scrollToTop } from "../components/SmoothScroll";
-import fbIcon from "../assets/fbicon.png";
-import emailIcon from "../assets/emailicon.png";
-import phoneIcon from "../assets/phoneicon.png";
-import ytIcon from "../assets/yticon.png";
 import fbQr from "../assets/fbqr.png";
 import emailQr from "../assets/emailqr.png";
 import viberQr from "../assets/viberqr.png";
@@ -13,7 +9,7 @@ import ytQr from "../assets/ytqr.png";
 import bgImage from "../assets/contact.png";
 import mapQr from "../assets/mapqr.png";
 import { GradientText, PremiumButton } from "../components/premium";
-import { BoldText, LuxuryCard } from "../components/luxury";
+import { BoldText } from "../components/luxury";
 import SectionDivider from "../components/enhancements/SectionDivider";
 import RevealOnScroll from "../components/RevealOnScroll";
 import AnimatedCard from "../components/AnimatedCard";
@@ -38,10 +34,47 @@ function Contact() {
   };
 
   const contactMethods = [
-    { icon: fbIcon, text: 'm.me/HopeInChristCityChurch', qr: fbQr, label: 'Facebook Messenger' },
-    { icon: emailIcon, text: 'inquiries@hopeinchristcitychurch.org', qr: emailQr, label: 'Email' },
-    { icon: phoneIcon, text: '09185468892', qr: viberQr, label: 'Phone/Viber' },
-    { icon: ytIcon, text: 'youtube.com/@HopeInChristCityChurch', qr: ytQr, label: 'YouTube' }
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="#0099ff" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.34.26.55l.05 1.72a.5.5 0 0 0 .7.44l1.92-.85c.17-.07.35-.08.52-.04A11 11 0 0 0 12 21.4c5.64 0 10-4.13 10-9.7S17.64 2 12 2zm5.84 7.63-2.94 4.65c-.47.74-1.46.92-2.14.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.17-.69-.62l2.94-4.65c.47-.74 1.46-.92 2.14-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.17.69.62z"/>
+        </svg>
+      ),
+      text: 'm.me/HopeInChristCityChurch',
+      qr: fbQr,
+      label: 'Facebook Messenger'
+    },
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#ea4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <polyline points="22,6 12,13 2,6" stroke="#ea4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      ),
+      text: 'inquiries@hopeinchristcitychurch.org',
+      qr: emailQr,
+      label: 'Email'
+    },
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="#34c759" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      ),
+      text: '09185468892',
+      qr: viberQr,
+      label: 'Phone/Viber'
+    },
+    {
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="#ff0000" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      ),
+      text: 'youtube.com/@HopeInChristCityChurch',
+      qr: ytQr,
+      label: 'YouTube'
+    }
   ];
 
   return (
@@ -129,16 +162,19 @@ Get In Touch`}
                 <RevealOnScroll key={index} variant="fade-up" delay={index * 0.1}>
                   <AnimatedCard>
                     <div style={{ textAlign: 'center', padding: '20px' }}>
-                      <img 
-                        src={method.icon} 
-                        alt={method.label} 
-                        style={{ 
-                          width: '60px', 
-                          height: '60px', 
-                          marginBottom: '20px',
-                          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))'
-                        }} 
-                      />
+                      <div style={{ 
+                        width: '64px',
+                        height: '64px',
+                        margin: '0 auto 20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'rgba(255,255,255,0.9)',
+                        borderRadius: '50%',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+                      }}>
+                        {method.icon}
+                      </div>
                       <h3 style={{ 
                         fontSize: '20px', 
                         color: '#5d7b8f', 

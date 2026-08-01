@@ -79,17 +79,6 @@ const ministriesData = [
     ]
   },
   {
-    id: 4,
-    name: "Logistics Ministry",
-    icon: "📋",
-    description: "Coordinating and organizing church events, services, and activities to ensure smooth operations.",
-    color: "#5d7b8f",
-    slug: "logistics",
-    heads: [
-      { name: "Bro. Jomar Baybayon", image: "logistics.jpg" }
-    ]
-  },
-  {
     id: 5,
     name: "Finance Ministry",
     icon: "💰",

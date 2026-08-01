@@ -26,6 +26,13 @@
   box-shadow: none;
 }
 
+.premium-button.outline {
+  background: transparent;
+  color: #5d7b8f;
+  border: 2px solid #5d7b8f;
+  box-shadow: none;
+}
+
 .premium-button.glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -116,6 +123,11 @@
   box-shadow: 0 4px 15px rgba(93, 123, 143, 0.2);
 }
 
+.premium-button.outline:hover {
+  background: rgba(93, 123, 143, 0.1);
+  box-shadow: 0 4px 15px rgba(93, 123, 143, 0.2);
+}
+
 .premium-button.glass:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
@@ -129,6 +141,16 @@
 .dark-mode .premium-button.secondary {
   color: #7fa6b5;
   border-color: #7fa6b5;
+}
+
+.dark-mode .premium-button.outline {
+  color: #c0d9dd;
+  border-color: #c0d9dd;
+}
+
+.dark-mode .premium-button.outline:hover {
+  background: rgba(192, 217, 221, 0.15);
+  box-shadow: 0 4px 15px rgba(192, 217, 221, 0.2);
 }
 
 .dark-mode .premium-button.glass {

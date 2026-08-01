@@ -5,14 +5,13 @@ import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import bg from "../assets/bg.jpg";
 import ScrollDownIndicator from "../components/ScrollDownIndicator";
-import MagneticButton from "../components/MagneticButton";
 import AnimatedCard from "../components/AnimatedCard";
 import SplitText from "../components/SplitText";
 import RevealOnScroll from "../components/RevealOnScroll";
 import FloatingBlob from "../components/FloatingBlob";
 import StatisticsSection from "../components/enhancements/StatisticsSection";
 import SectionDivider from "../components/enhancements/SectionDivider";
-import { GradientText, LazyImage, PremiumButton } from "../components/premium";
+import { GradientText, PremiumButton } from "../components/premium";
 import { BoldText, LuxuryCard } from "../components/luxury";
 import "./Home.css";
 
@@ -160,7 +159,7 @@ function Home() {
                 </PremiumButton>
               </Link>
               <Link to="/soul-winning">
-                <PremiumButton variant="glass" size="large">
+                <PremiumButton variant="secondary" size="large">
                   Learn About Salvation
                 </PremiumButton>
               </Link>

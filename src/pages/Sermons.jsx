@@ -1,57 +1,20 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Sermons.css";
+import { GradientText, PremiumButton } from "../components/premium";
+import { BoldText } from "../components/luxury";
+import SectionDivider from "../components/enhancements/SectionDivider";
+import RevealOnScroll from "../components/RevealOnScroll";
+
+const sermons = [
+  { id: 1, videoId: "SJSZh1-CRUA" },
+  { id: 2, videoId: "k94czTo7MtY" },
+  { id: 3, videoId: "b4Tius4iRVU" },
+  { id: 4, videoId: "EBcxa47geaU" },
+  { id: 5, videoId: "YR_5vu_APCo" },
+];
 
 function Sermons() {
-  const sermonsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sermonsRef.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      sermonsRef.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
-  const sermons = [
-    {
-      id: 1,
-      videoId: "SJSZh1-CRUA"
-    },
-    {
-      id: 2,
-      videoId: "k94czTo7MtY"
-    },
-    {
-      id: 3,
-      videoId: "b4Tius4iRVU"
-    },
-    {
-      id: 4,
-      videoId: "EBcxa47geaU"
-    },
-    {
-      id: 5,
-      videoId: "YR_5vu_APCo"
-    }
-  ];
-
   return (
     <>
       <Helmet>
@@ -64,64 +27,111 @@ function Sermons() {
         <link rel="canonical" href="https://hopeinchristcitychurch.org/sermons" />
       </Helmet>
 
-      <div className="sermons-page">
-        {/* Hero Section */}
-        <section className="sermons-hero">
-          <div className="sermons-hero-content">
-            <h1 className="sermons-hero-title">Sermon Archive</h1>
+      {/* ── HERO ── */}
+      <section className="sermons-hero">
+        <div className="sermons-hero-inner">
+          <RevealOnScroll variant="fade-down">
+            <div className="sermons-hero-eyebrow">HOPE IN CHRIST CITY CHURCH</div>
+            <BoldText size="large" align="center">
+              {`Sermon Archive`}
+            </BoldText>
+          </RevealOnScroll>
+          <RevealOnScroll variant="fade-up" delay={0.2}>
             <p className="sermons-hero-subtitle">
-              Watch past messages and grow in your faith
+              Watch past messages and grow deeper in your faith
+              through biblical teaching.
             </p>
-          </div>
-        </section>
+          </RevealOnScroll>
+          <RevealOnScroll variant="scale" delay={0.35}>
+            <a
+              href="https://www.youtube.com/@HopeInChristCityChurch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <PremiumButton variant="glass" size="large">
+                Subscribe on YouTube →
+              </PremiumButton>
+            </a>
+          </RevealOnScroll>
+        </div>
+      </section>
 
-        {/* Sermons Grid */}
-        <section className="sermons-section">
-          <div className="sermons-container">
-            <div className="sermons-grid">
-              {sermons.map((sermon, index) => (
-                  <div
-                    key={sermon.id}
-                    ref={(el) => (sermonsRef.current[index] = el)}
-                    className="sermon-card fade-in-section"
-                  >
-                    <div className="sermon-video">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${sermon.videoId}`}
-                        title={sermon.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                    <div className="sermon-content">
-                      <span className="sermon-date">{sermon.date}</span>
-                      <h3 className="sermon-title">{sermon.title}</h3>
-                      <p className="sermon-description">{sermon.description}</p>
-                      <a
-                        href={`https://www.youtube.com/watch?v=${sermon.videoId}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="sermon-link"
-                      >
-                        Watch on YouTube →
-                      </a>
-                    </div>
+      <SectionDivider variant="wave" animated={true} />
+
+      {/* ── SERMONS GRID ── */}
+      <section className="sermons-section">
+        <div className="sermons-container">
+          <RevealOnScroll variant="fade-down">
+            <h2 className="sermons-section-title">
+              <GradientText animate={true}>Recent Messages</GradientText>
+            </h2>
+            <p className="sermons-section-sub">
+              Click any video to watch. Use fullscreen for the best experience.
+            </p>
+          </RevealOnScroll>
+
+          <div className="sermons-grid">
+            {sermons.map((sermon, index) => (
+              <RevealOnScroll
+                key={sermon.id}
+                variant="fade-up"
+                delay={(index % 3) * 0.1}
+              >
+                <div className="sermon-card">
+                  <div className="sermon-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${sermon.videoId}`}
+                      title={`Sermon ${sermon.id}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
-                ))}
-              </div>
+                  <div className="sermon-footer">
+                    <a
+                      href={`https://www.youtube.com/watch?v=${sermon.videoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sermon-yt-link"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                      Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Call to Action */}
-        <section className="sermons-cta">
-          <div className="sermons-cta-content">
-            <h2>Join Us Live</h2>
-            <p>Experience our services in person every Sunday at 10:00 AM</p>
-            <Link to="/contact" className="sermons-cta-button">Visit Us</Link>
-          </div>
-        </section>
-      </div>
+      <SectionDivider variant="curve" />
+
+      {/* ── CTA ── */}
+      <section className="sermons-cta">
+        <div className="sermons-cta-inner">
+          <RevealOnScroll variant="fade-down">
+            <BoldText size="medium" align="center">
+              {`Join Us\nLive`}
+            </BoldText>
+          </RevealOnScroll>
+          <RevealOnScroll variant="fade-up" delay={0.2}>
+            <p className="sermons-cta-text">
+              Experience our services in person every Sunday at 10:00 AM.
+              We'd love to worship with you!
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll variant="scale" delay={0.35}>
+            <Link to="/contact">
+              <PremiumButton variant="primary" size="large">
+                Visit Us
+              </PremiumButton>
+            </Link>
+          </RevealOnScroll>
+        </div>
+      </section>
     </>
   );
 }

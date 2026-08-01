@@ -1,0 +1,166 @@
+/* ======================================================= */
+/*   HOW TO EVANGELIZE PAGE                               */
+/* ======================================================= */
+
+/* ── HERO (contains title + carousel) ── */
+
+.soulwinning-hero {
+  position: relative;
+  padding: 100px 0 0;
+  background: linear-gradient(
+    145deg,
+    #3d5a6b 0%,
+    #5d7b8f 30%,
+    #7fa6b5 65%,
+    #9ec0ce 100%
+  );
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle cross pattern overlay */
+.soulwinning-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.soulwinning-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.soulwinning-eyebrow {
+  font-family: "Roca One", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.70);
+  margin-bottom: 8px;
+}
+
+.soulwinning-hero-subtitle {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 16px auto 0;
+}
+
+/* Carousel wrapper — removes the section's own padding so it
+   sits flush inside the hero section seamlessly */
+.soulwinning-carousel-wrapper {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.soulwinning-carousel-wrapper .bible-verses-section {
+  padding-top: 0;
+  background: transparent;
+}
+
+.soulwinning-carousel-wrapper .bible-verses-section::before,
+.soulwinning-carousel-wrapper .bible-verses-section::after {
+  display: none;
+}
+
+/* Hide the redundant title inside the carousel when embedded in the hero */
+.soulwinning-carousel-wrapper .bible-verses-title {
+  display: none;
+}
+
+/* ── CTA ── */
+
+.soulwinning-cta {
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
+  background: linear-gradient(
+    145deg,
+    #3d5a6b 0%,
+    #5d7b8f 30%,
+    #7fa6b5 65%,
+    #c0d9dd 100%
+  );
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.soulwinning-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(255, 255, 255, 0.02) 60px,
+    rgba(255, 255, 255, 0.02) 120px
+  );
+  pointer-events: none;
+}
+
+.soulwinning-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.soulwinning-cta-text {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 700px;
+}
+
+.soulwinning-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 768px) {
+  .soulwinning-hero {
+    padding-top: 80px;
+  }
+  .soulwinning-hero-inner {
+    padding: 0 20px;
+  }
+}
+
+/* ── DARK MODE ── */
+
+.dark-mode .soulwinning-hero {
+  background: linear-gradient(145deg, #0e1a22 0%, #1a2a35 30%, #1e2f3c 65%, #1a2a35 100%);
+}
+
+.dark-mode .soulwinning-cta {
+  background: linear-gradient(145deg, #0e1a22 0%, #1a2a35 35%, #1e2f3c 100%);
+}
+
+/* Force BoldText white on the teal hero */
+.soulwinning-hero .bold-text-line,
+.soulwinning-hero .bold-text-line * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
