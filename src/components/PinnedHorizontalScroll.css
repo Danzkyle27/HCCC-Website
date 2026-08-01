@@ -1,0 +1,232 @@
+/* ======================================================= */
+/*   PINNED HORIZONTAL SCROLL                             */
+/* ======================================================= */
+
+/*
+  Structure:
+  .phs-wrapper   — tall div, provides scroll distance (height set by JS)
+  .phs-sticky    — position:sticky, stays in viewport
+  .phs-viewport  — clips overflow
+  .phs-track     — slides left via JS translateX
+*/
+
+.phs-wrapper {
+  position: relative;
+  width: 100%;
+  /* height is set dynamically by JS */
+}
+
+.phs-sticky {
+  position: sticky;
+  /* sit just below navbar (≈70px) + breadcrumb (≈50px) */
+  top: 120px;
+  width: 100%;
+  /* viewport height minus the sticky UI above it */
+  height: calc(100vh - 120px);
+  overflow: visible;
+}
+
+/* Viewport clips the track overflow only */
+.phs-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.phs-header {
+  position: absolute;
+  top: clamp(24px, 4vw, 48px);
+  left: clamp(24px, 5vw, 72px);
+  z-index: 20;  /* above phs-viewport which is z-index auto */
+  pointer-events: none;
+  max-width: 260px;
+}
+
+.phs-label {
+  font-family: "Roca One", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 10px;
+}
+
+.phs-title {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: clamp(20px, 2.8vw, 34px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.phs-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: "Roca One", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.5px;
+}
+
+.phs-hint-arrow {
+  display: inline-block;
+  animation: hintBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes hintBounce {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(6px); }
+}
+
+/* Viewport — full height, clips overflow */
+.phs-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Track — row of cards, JS applies translateX */
+.phs-track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(20px, 2.5vw, 36px);
+  padding-left: max(320px, clamp(24px, 5vw, 72px));
+  padding-right: 40vw;
+  will-change: transform;
+}
+
+/* Individual panel */
+.phs-panel {
+  flex: 0 0 auto;
+  width: clamp(280px, 28vw, 420px);
+  height: clamp(300px, 48vh, 500px);
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 24px;
+  padding: clamp(28px, 3vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: background 0.4s ease, border-color 0.4s ease,
+              box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: default;
+}
+
+.phs-panel:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35);
+  transform: translateY(-8px);
+}
+
+.phs-panel-index {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.30);
+  letter-spacing: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.phs-panel-title {
+  font-family: "Roca Two", "Roca One", sans-serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.phs-panel-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.75), transparent);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.phs-panel:hover .phs-panel-title::after {
+  width: 72px;
+}
+
+.phs-panel-body {
+  font-family: "Roca One", sans-serif;
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.80);
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.phs-panel-body::-webkit-scrollbar { display: none; }
+
+.phs-panel-ref {
+  font-family: "Roca One", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* ── DARK MODE ── */
+.dark-mode .phs-panel {
+  background: rgba(0, 0, 0, 0.38);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.dark-mode .phs-panel:hover {
+  background: rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+/* ── MOBILE FALLBACK ── */
+@media (max-width: 768px) {
+  .phs-wrapper {
+    height: auto !important;
+  }
+
+  .phs-sticky {
+    position: relative;
+    height: auto;
+  }
+
+  .phs-viewport {
+    position: relative;
+    inset: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .phs-track {
+    flex-direction: column;
+    padding: 20px;
+    transform: none !important;
+  }
+
+  .phs-panel {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+}

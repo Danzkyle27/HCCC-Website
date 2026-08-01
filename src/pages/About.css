@@ -520,3 +520,37 @@
 .dark-mode .about-cta-text {
   color: rgba(224, 224, 224, 0.95) !important;
 }
+
+/* ── PILLAR HORIZONTAL SCROLL SECTION ── */
+
+.about-pillars-scroll {
+  background: linear-gradient(
+    145deg,
+    #3d5a6b 0%,
+    #5d7b8f 30%,
+    #7fa6b5 65%,
+    #9ec0ce 100%
+  );
+}
+
+.about-pillar-panel-icon {
+  font-size: 48px;
+  line-height: 1;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Variant-specific panel styling for pillars */
+.about-pillar-panel .phs-panel-body {
+  font-size: clamp(14px, 1.6vw, 17px);
+  line-height: 1.85;
+}
+
+/* Dark mode */
+.dark-mode .about-pillars-scroll {
+  background: linear-gradient(145deg, #0e1a22 0%, #1a2a35 30%, #1e2f3c 65%, #1a2a35 100%);
+}

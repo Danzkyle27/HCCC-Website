@@ -98,6 +98,7 @@ function Navbar() {
           <motion.li variants={itemVariants}><Link to="/" onClick={toggleMenu} className={isActive("/") ? "active" : ""}>HOME</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/programs" onClick={toggleMenu} className={isActive("/programs") ? "active" : ""}>PROGRAMS</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/ministries" onClick={toggleMenu} className={isActive("/ministries") ? "active" : ""}>MINISTRIES</Link></motion.li>
+          <motion.li variants={itemVariants}><Link to="/gallery" onClick={toggleMenu} className={isActive("/gallery") ? "active" : ""}>GALLERY</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/sermons" onClick={toggleMenu} className={isActive("/sermons") ? "active" : ""}>SERMONS</Link></motion.li>
           <motion.li variants={itemVariants}><Link to="/soul-winning" onClick={toggleMenu} className={isActive("/soul-winning") ? "active" : ""}>HOW TO EVANGELIZE</Link></motion.li>
 

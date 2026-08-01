@@ -27,6 +27,7 @@ import Contact from "./pages/Contact";
 import SoulWinning from "./pages/SoulWinning";
 import Ministries from "./pages/Ministries";
 import LuxuryShowcase from "./pages/LuxuryShowcase";
+import Gallery from "./pages/Gallery";
 
 import SundayService from "./pages/programs/SundayService";
 import Discipleship from "./pages/programs/Discipleship";
@@ -76,6 +77,7 @@ function AnimatedRoutes() {
         <Route path="/core-values" element={<PageTransition><CoreValues /></PageTransition>} />
         <Route path="/statement-of-faith" element={<PageTransition><StatementOfFaith /></PageTransition>} />
         <Route path="/luxury-showcase" element={<PageTransition><LuxuryShowcase /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );

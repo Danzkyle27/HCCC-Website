@@ -78,7 +78,6 @@ function StatementOfFaith() {
         <div className="foundation-page-overlay" />
 
         <div className="foundation-page-inner foundation-page-inner--wide">
-          {/* Title */}
           <RevealOnScroll variant="fade-down">
             <div className="foundation-eyebrow">CHURCH FOUNDATION</div>
             <h1 className="foundation-title foundation-title--wide">
@@ -87,7 +86,6 @@ function StatementOfFaith() {
             <hr className="foundation-divider" />
           </RevealOnScroll>
 
-          {/* Articles grid */}
           <div className="foundation-grid">
             {articles.map((article, i) => (
               <RevealOnScroll key={article.title} variant="fade-up" delay={(i % 3) * 0.1}>

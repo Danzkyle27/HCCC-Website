@@ -381,3 +381,41 @@
 .dark-mode .foundation-ref {
   color: rgba(192, 217, 221, 0.80);
 }
+
+/* ── STATEMENT OF FAITH — HORIZONTAL SCROLL WRAPPER ── */
+
+.sof-page {
+  background: url("../../assets/cross.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.sof-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(93, 123, 143, 0.78) 0%,
+    rgba(63, 95, 115, 0.84) 40%,
+    rgba(30, 55, 75, 0.90) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sof-page .phs-wrapper {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.dark-mode .sof-page::before {
+  background: linear-gradient(
+    160deg,
+    rgba(10, 20, 30, 0.88) 0%,
+    rgba(5, 15, 25, 0.93) 50%,
+    rgba(0, 10, 20, 0.96) 100%
+  );
+}

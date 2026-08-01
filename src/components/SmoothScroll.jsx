@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Expose the lenis instance globally so ScrollToTop (and anything else)
-// can call window.__lenis.scrollTo(0) instead of window.scrollTo(0,0),
-// which Lenis ignores.
+gsap.registerPlugin(ScrollTrigger);
+
 let lenisInstance = null;
 
 export function scrollToTop() {
@@ -32,14 +33,20 @@ function SmoothScroll({ children }) {
     lenisInstance = lenis;
     window.__lenis = lenis;
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // ── Key fix: tell Lenis to emit scroll events that ScrollTrigger listens to.
+    // Without this, GSAP ScrollTrigger never receives scroll position updates
+    // from Lenis and the pin never fires.
+    lenis.on('scroll', ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    // Use GSAP's ticker to drive Lenis so both are in sync on the same rAF loop.
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
+      lenis.off('scroll', ScrollTrigger.update);
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
       lenisInstance = null;
       window.__lenis = null;

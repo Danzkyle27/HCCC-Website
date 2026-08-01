@@ -61,10 +61,11 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 10px;
+  gap: 2px;
   flex: 1;
   justify-content: center;
   flex-wrap: nowrap;
+  overflow: visible;
 }
 
 /* Position search, language, and dark mode toggle on the right */
@@ -90,10 +91,10 @@
   color: #22211f;
   text-decoration: none;
   font-weight: 700;
-  padding: 10px 10px;
+  padding: 8px 6px;
   display: inline-block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
   position: relative;
@@ -265,7 +266,8 @@
 @media (max-width: 1024px) {
   .nav-list a,
   .dropbtn {
-    font-size: 20px;
+    font-size: 12px;
+    padding: 8px 5px;
   }
 }
 

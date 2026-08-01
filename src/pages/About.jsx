@@ -55,7 +55,6 @@ function AboutUs() {
           </RevealOnScroll>
         </div>
 
-        {/* Scroll hint */}
         <div className="about-scroll-hint">
           <div className="about-scroll-arrow" />
           <span>Scroll Down</span>
